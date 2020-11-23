@@ -3,11 +3,15 @@
   "version": "1.5.0",
   "description": "Fleja | React Next Multi-Concepts Templates",
   "main": "index.js",
-  "scripts": {
-    "dev": "node server.js -p $PORT",
-    "build": "next build",
-    "start": "NODE_ENV=production node server.js -p $PORT"
-  },
+  "rewrites": [ {
+    "source": "**",
+    "destination": "/index.html"
+}],
+"scripts": {
+    "dev": "next",
+    "build": "next build && next export",
+    "start": "next start"
+},
   "author": "EnvyTheme.com",
   "license": "ISC",
   "dependencies": {
