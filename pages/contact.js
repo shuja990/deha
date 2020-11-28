@@ -30,7 +30,7 @@ export class index extends Component {
                                     <div className="icon">
                                         <i className="icofont-email"></i>
                                     </div>
-                                    <h3>Mail Here</h3>
+                                    <h3>Email</h3>
                                     <p><a href="#">info@linkcaranow.org</a></p>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@ export class index extends Component {
                                     <div className="icon">
                                         <i className="icofont-phone"></i>
                                     </div>
-                                    <h3>Call Here</h3>
+                                    <h3>Telephone</h3>
                                     <p><a href="#">212-641-0482</a></p>
                                 </div>
                             </div>

@@ -31,8 +31,8 @@ export class Boxes extends Component {
                                 <div className="icon">
                                     <i className="icofont-pie-chart"></i>
                                 </div>
-                                <h3>Business Promotion to SEO Ranking</h3>
-                                <p>See assist restaurants on focusing on the correct use of keywords. They are not only the main ingredient in any good SEO recipe but also the best way to reach users who want to eat what you offer and are located close to you.</p>
+                                <h3>SEO Ranking</h3>
+                                <p>We assist restaurants on focusing on the correct use of keywords in any good SEO recipe but also the best way to reach users who want to eat what you offer and are located close to you.</p>
                             </div>
                         </div>
                     </div>

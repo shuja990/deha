@@ -34,7 +34,7 @@ export class Partner extends Component {
 
     render() {
         return (
-            <div className="partner-area ptb-120 bg-38d16a">
+            <div className="partner-area ptb-120 bg-white w-70">
                 <div className="container">
                     <div className="row">
                         {this.state.display ? <OwlCarousel 

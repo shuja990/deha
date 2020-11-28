@@ -10,14 +10,14 @@ export class index extends Component {
                 <Navbar />
                 <div className="page-title-area item-bg1">
                     <div className="container">
-                        <h1>Our Latest Blog</h1>
+                        <h1>Blog</h1>
                         <ul>
                             <li>
                                 <Link href="/">
                                     <a>Home</a>
                                 </Link>
                             </li>
-                            <li>Our Latest Blog</li>
+                            <li>Blog</li>
                         </ul>
                     </div>
                 </div>
@@ -38,7 +38,7 @@ export class index extends Component {
                                     <div className="blog-post-content">
                                         <span className="date">25 Feb, 2019</span>
                                         <h3><a href="#">The Most Popular New top Business Apps</a></h3>
-                                        <a href="#" className="read-more-btn">Read More <i className="icofont-double-right"></i></a>
+                                        <Link href="/blog-details"><a href="#" className="read-more-btn">Read More <i className="icofont-double-right"></i></a></Link>
                                     </div>
                                 </div>
                             </div>
