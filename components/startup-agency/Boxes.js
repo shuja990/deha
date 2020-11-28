@@ -11,8 +11,8 @@ export class Boxes extends Component {
                                 <div className="icon">
                                     <i className="icofont-dart"></i>
                                 </div>
-                                <h3>Digital Marketing</h3>
-                                <p>Quis ipsum suspendisse ultrices gravida. Risus commodo maecenas accumsan lacus.</p>
+                                <h3>Advocacy</h3>
+                                <p>Advocate for changes for unbiased treatment towards Caribbean American businesses.</p>
                             </div>
                         </div>
 
@@ -21,8 +21,8 @@ export class Boxes extends Component {
                                 <div className="icon">
                                     <i className="icofont-handshake-deal"></i>
                                 </div>
-                                <h3>Market Analysis</h3>
-                                <p>Quis ipsum suspendisse ultrices gravida. Risus commodo maecenas accumsan lacus.</p>
+                                <h3>Research and Insight</h3>
+                                <p>We will continually conduct industry research to help our members stay ahead of the game. We work to get you in front of trends before they emerge</p>
                             </div>
                         </div>
 
@@ -31,8 +31,8 @@ export class Boxes extends Component {
                                 <div className="icon">
                                     <i className="icofont-pie-chart"></i>
                                 </div>
-                                <h3>Business Promotion</h3>
-                                <p>Quis ipsum suspendisse ultrices gravida. Risus commodo maecenas accumsan lacus.</p>
+                                <h3>Business Promotion to SEO Ranking</h3>
+                                <p>See assist restaurants on focusing on the correct use of keywords. They are not only the main ingredient in any good SEO recipe but also the best way to reach users who want to eat what you offer and are located close to you.</p>
                             </div>
                         </div>
                     </div>

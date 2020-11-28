@@ -31,8 +31,7 @@ export class index extends Component {
                                         <i className="icofont-email"></i>
                                     </div>
                                     <h3>Mail Here</h3>
-                                    <p><a href="#">admin@artflex.com</a></p>
-                                    <p><a href="#">info@artflex.com</a></p>
+                                    <p><a href="#">info@linkcaranow.org</a></p>
                                 </div>
                             </div>
 
@@ -42,7 +41,7 @@ export class index extends Component {
                                         <i className="icofont-google-map"></i>
                                     </div>
                                     <h3>Visit Here</h3>
-                                    <p>1660 Travis Street Miramar, FL 33025, California</p>
+                                    <p>3510 Church Ave, Brooklyn, NY 11203</p>
                                 </div>
                             </div>
 
@@ -52,8 +51,7 @@ export class index extends Component {
                                         <i className="icofont-phone"></i>
                                     </div>
                                     <h3>Call Here</h3>
-                                    <p><a href="#">+123 456 7890</a></p>
-                                    <p><a href="#">+241 452 4526</a></p>
+                                    <p><a href="#">212-641-0482</a></p>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +95,7 @@ export class index extends Component {
 
                                         <div className="col-lg-12 col-md-6">
                                             <div className="form-group">
-                                                <input type="text" className="form-control" placeholder="Subject" />
+                                                <input type="text" className="form-control" placeholder="Restaurant" />
                                             </div>
                                         </div>
 

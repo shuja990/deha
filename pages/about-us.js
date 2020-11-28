@@ -33,10 +33,10 @@ export class index extends Component {
                 <AboutUsArea />
                 <Cta />
                 {/* <WhyChooseUs />
-                <Funfacts />
+                <Funfacts /> 
                 <Skills /> */}
-                <Team />
-                <Feedback />
+                {/* <Team />
+                <Feedback /> */}
                 <Contact />
 
                 <Footer />

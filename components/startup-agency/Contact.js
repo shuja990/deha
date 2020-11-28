@@ -9,11 +9,10 @@ export class Contact extends Component {
                     <div className="contact-cta-content">
                         <div className="section-title">
                             <span>Get in Touch</span>
-                            <h2>Want to work with us? Lets talk about project!</h2>
+                            <h2>Want To Work With Us? Let's Talk About The Future of Community!</h2>
                         </div>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-                        <Link href="#">
+                        <Link href="/contact">
                             <a className="btn btn-primary">Contact Us</a>
                         </Link>
                     </div>

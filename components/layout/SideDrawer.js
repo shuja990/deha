@@ -35,7 +35,7 @@ export class SideDrawer extends Component {
                                     </span>
                                 </button>
 
-                                <h2 onClick={this.closeDrawer} className="modal-title" id="myModalLabel2"><a href="/">
+                                <h2 onClick={this.closeDrawer} className="modal-title" style={{opacity:"1",background:"white"}} id="myModalLabel2"><a href="/">
                                     <img src={require("../../images/logo.png")} alt="logo" /></a>
                                 </h2>
                             </div>
@@ -80,7 +80,7 @@ export class SideDrawer extends Component {
                                         <li>
                                             <i className="icofont-email"></i>
                                             Email
-                                            <span><a href="#">info@carainc.org</a></span>
+                                            <span><a href="#">info@linkcaranow</a></span>
                                         </li>
                                         <li>
                                             <i className="icofont-phone"></i>
@@ -94,10 +94,10 @@ export class SideDrawer extends Component {
                                     <h3 className="title">Connect With Us</h3>
 
                                     <ul className="social-list">
-                                        <li><a href="#"><i className="icofont-facebook"></i></a></li>
-                                        <li><a href="#"><i className="icofont-twitter"></i></a></li>
-                                        <li><a href="#"><i className="icofont-instagram"></i></a></li>
-                                        <li><a href="#"><i className="icofont-linkedin"></i></a></li>
+                                    <li><a href="https://www.instagram.com/linkcaranow/"><i className="icofont-instagram"></i></a></li>
+                                    <li><a href="https://www.facebook.com/linkcaranow"><i className="icofont-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/linkcaranow"><i className="icofont-twitter"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/linkcaranow/"><i className="icofont-linkedin"></i></a></li>
                                     </ul>
                                 </div>
 

@@ -10,7 +10,7 @@ export class index extends Component {
                 <Navbar />
                 <div className="page-title-area item-bg1">
                     <div className="container">
-                        <h1>Signup</h1>
+                        <h1>Join</h1>
                         <ul>
                             <li>
                                 <Link href="/">
@@ -49,6 +49,18 @@ export class index extends Component {
                                             </div>
 
                                             <div className="col-lg-12">
+                                                <div className="form-group">
+                                                    <input type="text" className="form-control" placeholder="Restaurant" />
+                                                </div>
+                                            </div>
+
+                                            <div className="col-lg-12">
+                                                <div className="form-group">
+                                                    <input type="number" className="form-control" placeholder="Phone Number" />
+                                                </div>
+                                            </div>
+
+                                            <div className="col-lg-12">
                                                 <div className="form-check">
                                                     <input type="checkbox" className="form-check-input" id="checkme" />
                                                     <label className="form-check-label" for="checkme">Keep me Login</label>
@@ -67,7 +79,7 @@ export class index extends Component {
 
                             <div className="col-lg-6 col-md-12">
                                 <div className="signup-image">
-                                    <img src={require("../images/marketing.png")} alt="image" />
+                                    <img src={require("../images/marketing1.png")} alt="image" />
                                 </div>
                             </div>
                         </div>

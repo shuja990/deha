@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
+// import Link from './../utils/ActiveLink';
 
 export class index extends Component {
     render() {
@@ -55,18 +56,18 @@ export class index extends Component {
                                     <p>Advocate for changes for unbiased treatment towards Caribbean American businesses.</p>
                                 </div>
                             </div>
+                            </div>
+                            <h2>CARA ONGOING FOCUS</h2>
+                            <div className="row">
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
                                         <i className="icofont-live-support"></i>
                                     </div>
                                     <h3>FREE MEMBERSHIP</h3>
-                                    <p>Sign up on website</p>
+                                    <p><Link href="/signup"><a className="">Sign up on website</a></Link></p>
                                 </div>
                             </div>
-                            </div>
-                            <h2>CARA ONGOING FOCUS</h2>
-                            <div className="row">
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
@@ -94,6 +95,24 @@ export class index extends Component {
                                     </div>
                                     <h3>Expertise </h3>
                                     <p>Serve as the preferred knowledge resource for the Caribbean American Diaspora.</p>
+                                </div>
+                            </div>
+                            <div className="col-lg-4 col-md-6">
+                                <div className="single-services-box">
+                                    <div className="icon">
+                                        <i className="icofont-pie-chart"></i>
+                                    </div>
+                                    <h3>Workforce and development </h3>
+                                    <p>We will train future employees, advancing the skills of current employees, and communicating the value of restaurant employment to people nationwide.</p>
+                                </div>
+                            </div>
+                            <div className="col-lg-4 col-md-6">
+                                <div className="single-services-box">
+                                    <div className="icon">
+                                        <i className="icofont-pie-chart"></i>
+                                    </div>
+                                    <h3>Research and insight</h3>
+                                    <p>We will continually conduct industry research to help our members stay ahead of the game. We work to get you in front of trends before they emerge. </p>
                                 </div>
                             </div>
                         </div>

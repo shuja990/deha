@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Link from '../../utils/ActiveLink'
 export class About extends Component {
     render() {
         return (
@@ -21,9 +21,7 @@ export class About extends Component {
                                 </div>
                                 <p>In October 2020 the Deh Abroad Corporation created Caribbean American Restaurants Association Inc. (CARA), to advocate for and leverage Caribbean American hospitality businesses, provide resources, and eliminate adverse actions that have historically affected them. CARA will effectively work to navigate the needs of our Caribbean hospitality business owners ensuring equality while protecting our culture. CARA is the ONLY Caribbean advocacy group focused on delivering hospitality industry benefits, services, and solutions.</p>
 
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-
-                                <a href="#" className="btn btn-primary">Let's Talk</a>
+                                <Link href="/contact"><a href="#" className="btn btn-primary">Let's Talk</a></Link>
                             </div>
                         </div>
                     </div>

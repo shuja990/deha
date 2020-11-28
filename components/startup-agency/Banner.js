@@ -56,7 +56,7 @@ export class Banner extends Component {
                                                             isVisible ? "animated fadeInDown" : ''
                                                         }
                                                     >
-                                                        We are creative digital agency
+                                                        Our Industry - Our Culture - Your Champion
                                                     </h1>
                                                     <a 
                                                         href="#"
@@ -64,7 +64,7 @@ export class Banner extends Component {
                                                             btn btn-primary ${isVisible ? "animated fadeInDown" : ''}
                                                         `}
                                                     >
-                                                        Get Started
+                                                        Join
                                                     </a>
                                                 </div>
                                             </div>
@@ -96,7 +96,7 @@ export class Banner extends Component {
                                                             isVisible ? "animated fadeInDown" : ''
                                                         }
                                                     >
-                                                        We are creative digital agency
+                                                        Our Industry - Our Culture - Your Champion
                                                     </h1>
                                                     <a 
                                                         href="#"
@@ -104,7 +104,7 @@ export class Banner extends Component {
                                                             btn btn-primary ${isVisible ? "animated fadeInDown" : ''}
                                                         `}
                                                     >
-                                                        Get Started
+                                                        Join
                                                     </a>
                                                 </div>
                                             </div>
@@ -136,7 +136,7 @@ export class Banner extends Component {
                                                             isVisible ? "animated fadeInDown" : ''
                                                         }
                                                     >
-                                                        We are creative digital agency
+                                                        Our Industry - Our Culture - Your Champion
                                                     </h1>
                                                     <a 
                                                         href="#"
@@ -144,7 +144,7 @@ export class Banner extends Component {
                                                             btn btn-primary ${isVisible ? "animated fadeInDown" : ''}
                                                         `}
                                                     >
-                                                        Get Started
+                                                        Join
                                                     </a>
                                                 </div>
                                             </div>

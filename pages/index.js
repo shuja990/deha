@@ -22,7 +22,7 @@ export class index extends Component {
         return (
             <React.Fragment>
                 <Navbar />
-                <Banner />
+                <Banner /> 
                 <Boxes />
                 <WhyChooseUs />
                 {/* <Services /> */}
