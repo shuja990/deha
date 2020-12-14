@@ -72,7 +72,7 @@ export class Footer extends Component {
                     <div className="copyright-area">
                         <div className="row">
                             <div className="">
-                                <p>Caribbean American Restaurant Association Inc Copyright @2019. All rights reserved.</p>
+                                <p>Caribbean American Restaurant Association Inc Copyright @2021. All rights reserved.</p>
                             </div>
 
                             {/* <div className="col-lg-6 col-md-6 text-right">
