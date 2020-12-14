@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import VisibilitySensor from "react-visibility-sensor";
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 const OwlCarousel = dynamic(import('react-owl-carousel3'));
 
 const options = {
@@ -58,14 +59,14 @@ export class Banner extends Component {
                                                     >
                                                         1st Portal For Caribbean Restaurants
                                                     </h1>
-                                                    <a 
+                                                    <Link href="/signup"><a 
                                                         href="#"
                                                         className={`
                                                             btn btn-primary ${isVisible ? "animated fadeInDown" : ''}
                                                         `}
                                                     >
                                                         Join For Free
-                                                    </a>
+                                                    </a></Link>
                                                 {/* </div> */}
                                             </div>
                                         )}
@@ -98,14 +99,14 @@ export class Banner extends Component {
                                                     >
                                                         Our Industry - Our Culture - Your Champion
                                                     </h1>
-                                                    <a 
+                                                    <Link href="/signup"><a 
                                                         href="#"
                                                         className={`
                                                             btn btn-primary ${isVisible ? "animated fadeInDown" : ''}
                                                         `}
                                                     >
                                                         Join For Free
-                                                    </a>
+                                                    </a></Link>
                                                 {/* </div> */}
                                             </div>
                                         )}
@@ -138,14 +139,14 @@ export class Banner extends Component {
                                                     >
                                                         Our Industry - Our Culture - Your Champion
                                                     </h1>
-                                                    <a 
+                                                    <Link href="/signup"><a 
                                                         href="#"
                                                         className={`
                                                             btn btn-primary ${isVisible ? "animated fadeInDown" : ''}
                                                         `}
                                                     >
                                                         Join For Free
-                                                    </a>
+                                                    </a></Link>
                                                 {/* </div> */}
                                             </div>
                                         )}

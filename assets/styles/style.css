@@ -1264,7 +1264,7 @@ Main Banner CSS
   top: 0;
   background: #ffffff;
   width: 100%;
-  height: 100%;
+  height: 80%;
   opacity: .88;
   z-index: -1;
 }
@@ -1274,7 +1274,7 @@ Main Banner CSS
   z-index: -2;
   content: '';
   width: 100%;
-  height: 100%;
+  height: 80%;
   background-image: url(../../images/dot.png);
   left: 0;
   top: 0;

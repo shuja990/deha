@@ -95,6 +95,36 @@ export class Partner extends Component {
                                     </Link>
                                 </div>
                             </div>
+                            <div className="col-lg-12">
+                                <div className="partner-item">
+                                    <Link href="#">
+                                        <a>
+                                            <img src={require("../../images/logo1.png")} alt="partner" />
+                                            <img src={require("../../images/logo1.png")} alt="partner" />
+                                        </a>
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className="col-lg-12">
+                                <div className="partner-item">
+                                    <Link href="#">
+                                        <a>
+                                            <img src={require("../../images/logo2.png")} alt="partner" />
+                                            <img src={require("../../images/logo2.png")} alt="partner" />
+                                        </a>
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className="col-lg-12">
+                                <div className="partner-item">
+                                    <Link href="#">
+                                        <a>
+                                            <img src={require("../../images/logo3.png")} alt="partner" />
+                                            <img src={require("../../images/logo3.png")} alt="partner" />
+                                        </a>
+                                    </Link>
+                                </div>
+                            </div>
                         </OwlCarousel> : ''}
                     </div>
                 </div>

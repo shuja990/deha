@@ -70,9 +70,6 @@ export class Footer extends Component {
                     </div>
 
                     <div className="copyright-area">
-                        <img src={require("../../images/logo1.png")}  className="ml-4 mr-4" alt="line-bg" />
-                        <img src={require("../../images/logo2.png")} className="ml-4 mr-4" alt="line-bg" />
-                        <img src={require("../../images/logo3.png")} className="ml-4 mr-4" alt="line-bg" />
                         <div className="row">
                             <div className="">
                                 <p>Caribbean American Restaurant Association Inc Copyright @2019. All rights reserved.</p>
