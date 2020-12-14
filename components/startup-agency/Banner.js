@@ -50,13 +50,13 @@ export class Banner extends Component {
                                     <VisibilitySensor>
                                         {({ isVisible }) => (
                                             <div className="col-lg-5 col-md-12">
-                                                <div className="hero-content">
+                                                {/* <div className="hero-content"> */}
                                                     <h1
                                                         className={
                                                             isVisible ? "animated fadeInDown" : ''
                                                         }
                                                     >
-                                                        Our Industry - Our Culture - Your Champion
+                                                        1st Portal For Caribbean Restaurants
                                                     </h1>
                                                     <a 
                                                         href="#"
@@ -64,9 +64,9 @@ export class Banner extends Component {
                                                             btn btn-primary ${isVisible ? "animated fadeInDown" : ''}
                                                         `}
                                                     >
-                                                        Join
+                                                        Join For Free
                                                     </a>
-                                                </div>
+                                                {/* </div> */}
                                             </div>
                                         )}
                                     </VisibilitySensor>
@@ -90,7 +90,7 @@ export class Banner extends Component {
                                     <VisibilitySensor>
                                         {({ isVisible }) => (
                                             <div className="col-lg-5 col-md-12">
-                                                <div className="hero-content">
+                                                {/* <div className="hero-content"> */}
                                                     <h1
                                                         className={
                                                             isVisible ? "animated fadeInDown" : ''
@@ -104,9 +104,9 @@ export class Banner extends Component {
                                                             btn btn-primary ${isVisible ? "animated fadeInDown" : ''}
                                                         `}
                                                     >
-                                                        Join
+                                                        Join For Free
                                                     </a>
-                                                </div>
+                                                {/* </div> */}
                                             </div>
                                         )}
                                     </VisibilitySensor>
@@ -130,7 +130,7 @@ export class Banner extends Component {
                                     <VisibilitySensor>
                                         {({ isVisible }) => (
                                             <div className="col-lg-5 col-md-12">
-                                                <div className="hero-content">
+                                                {/* <div className="hero-content"> */}
                                                     <h1
                                                         className={
                                                             isVisible ? "animated fadeInDown" : ''
@@ -144,9 +144,9 @@ export class Banner extends Component {
                                                             btn btn-primary ${isVisible ? "animated fadeInDown" : ''}
                                                         `}
                                                     >
-                                                        Join
+                                                        Join For Free
                                                     </a>
-                                                </div>
+                                                {/* </div> */}
                                             </div>
                                         )}
                                     </VisibilitySensor>

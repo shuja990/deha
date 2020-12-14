@@ -29,13 +29,13 @@ export default withRedux(initStore)(
             return (
                 <React.Fragment>
                     <DefaultSeo
-                        title="Fleja | React Next Multi-Concepts Templates"
-                        description="Fleja | React Next Multi-Concepts Templates. This has been built with React, Next.js, Express.js, and ES6+"
+                        title="The Caribbean American Restaurant Association"
+                        description="The Caribbean American Restaurant Association"
                         openGraph={{
                             type: 'website',
                             locale: 'en_IE',
                             url: 'https://nextland-react.envytheme.com/',
-                            site_name: 'Fleja | React Next Multi-Concepts Templates',
+                            site_name: 'The Caribbean American Restaurant Association',
                         }}
                     />
                     <Preloader>

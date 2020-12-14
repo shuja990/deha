@@ -18,7 +18,7 @@ export class WhyChooseUs extends Component {
                             <div className="why-choose-us-content">
                                 <div className="section-title">
                                     <span>WHy Choose Us</span>
-                                    <h2>We Are Creative, Designers & Developers change to CARA Goals</h2>
+                                    <h2>CARA Goals</h2>
                                 </div>
                                 <p>The Caribbean American Restaurant Association is focused and dedicated to the enhancement and successes of the Caribbean culture in the food service industry in New York City. CARA services as a collective voice for hospitality businesses and strives to protect the prosperity of our members. CARA intends to fight to reverse current N.Y.C. and N.Y.S. policies that target hospitality businesses and disproportionately targets and jeopardize Caribbean American hospitality businesses. We want to empower you to achieve even more success than you thought possible because we assuredly understand the cultural challenges you face in NYC.</p>
 
