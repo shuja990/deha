@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-import {firestore} from '../firebase/firebase.utils'
+import {firestore,auth} from '../firebase/firebase.utils'
 export class index extends Component {
     state = {
         visits: [],
