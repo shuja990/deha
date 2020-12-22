@@ -68,12 +68,17 @@ export class index extends Component {
                 </div>              
                 <section className="contact-area ptb-120">
                     <div className="container">
-                      {auth.currentUser.email === "info@linkcaranow.org"
-                      ?
-<button type="button" className="btn btn-primary" data-toggle="modal" onClick={this.showModal} data-target="#exampleModal">Add Entry</button>
-: null
+                      {auth.currentUser!==null
+                       ? <div>
+                           {auth.currentUser.email === "info@linkcaranow.org"
+                           ?
+                           <button type="button" className="btn btn-primary" data-toggle="modal" onClick={this.showModal} data-target="#exampleModal">Add Entry</button>
+                            : null
+                         }
+                       </div>
+                          : <div></div>
                       }
-
+                      
                     <table className="table">
   <thead>
     <tr>
