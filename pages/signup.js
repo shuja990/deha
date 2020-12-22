@@ -18,7 +18,7 @@ export class index extends Component {
         this.setState({[name]: value})
     }
     componentDidMount(){
-        if(auth.email){
+        if(auth.currentUser.email){
             Router.push('/')
         }
     }
@@ -77,9 +77,15 @@ export class index extends Component {
                                                     <input type="text" className="form-control" value={this.state.userName} name="userName" onChange={this.handleChange} placeholder="Username" />
                                                 </div>
                                             </div>
+                                            
                                             <div className="col-lg-12">
                                                 <div className="form-group">
-                                                    <input type="text" className="form-control" value={this.state.displayName} name="displayName" onChange={this.handleChange} placeholder="Name" />
+                                                    <input type="password" className="form-control" value={this.state.password} name="password" onChange={this.handleChange} placeholder="Password" />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-12">
+                                                <div className="form-group">
+                                                    <input type="text" className="form-control" value={this.state.displayName} name="displayName" onChange={this.handleChange} placeholder="Restaurant Owner Name" />
                                                 </div>
                                             </div>
                                             <div className="col-lg-12">
@@ -88,11 +94,6 @@ export class index extends Component {
                                                 </div>
                                             </div>
 
-                                            <div className="col-lg-12">
-                                                <div className="form-group">
-                                                    <input type="password" className="form-control" value={this.state.password} name="password" onChange={this.handleChange} placeholder="Password" />
-                                                </div>
-                                            </div>
 
                                             <div className="col-lg-12">
                                                 <div className="form-group">

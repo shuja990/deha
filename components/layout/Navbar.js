@@ -168,11 +168,11 @@ export class Navbar extends Component {
                                                     <a className="nav-link">Contact</a>
                                                 </Link>
                                             </li>
-                                            <li className="nav-item">
+                                            {/* <li className="nav-item">
                                                 <Link activeClassName="active" href="/blog">
                                                     <a className="nav-link">Blog</a>
                                                 </Link>
-                                            </li>
+                                            </li> */}
                                             {
                                                 auth.currentUser===null ?
                                             <li className="nav-item">
