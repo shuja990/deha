@@ -6,7 +6,7 @@ import {auth,firestore} from '../firebase/firebase.utils'
 export class index extends Component {
     state = {
         visits: [],
-        agency: '',
+        agency: 'State Liquor Authority (SLA)',
         date: ''
     }
     handleChange = event => {
@@ -36,7 +36,7 @@ export class index extends Component {
         firestore.collection("visits").add({
             agency:that.state.agency,
             date: that.state.date,
-            email : auth.email
+            email : auth.currentUser.email
         })
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);

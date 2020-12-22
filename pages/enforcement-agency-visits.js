@@ -18,7 +18,7 @@ export class index extends Component {
       const that = this;
       let c = [];
       if(auth.currentUser!==null){
-      firestore.collection("visits").where("email", "==", auth.currentUser.email)
+      firestore.collection("agency").where("email", "==", auth.currentUser.email)
   .get()
   .then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
@@ -33,10 +33,10 @@ export class index extends Component {
   }
     addVisit = () => {
         const that = this;
-        firestore.collection("visits").add({
-            agency:that.state.agency,
+        firestore.collection("agency").add({
+            agency:that.state.agency,  
             date: that.state.date,
-            email : auth.email
+            email : auth.currentUser.email
         })
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);

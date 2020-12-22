@@ -29,14 +29,15 @@ export class index extends Component {
             c.push(doc.data())
         });
         that.setState({visits:c})
-        console.log(auth.email);
+        // console.log(auth.email);
 
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
     });
     }
-    addVisit = () => {
+    addVisit = (e) => {
+        e.preventDefault();
         const that = this;
         firestore.collection("notice").add({
             name: that.state.name,
@@ -132,7 +133,7 @@ export class index extends Component {
 
                         <div className="row h-100 justify-content-center align-items-center">
                             <div className="col-lg-6 col-md-12">
-                                <form id="contactForm">
+                                <form id="contactForm" onSubmit={this.addVisit}>
                                     <div className="row">
                                         <div className="col-lg-12 col-md-12">
                                             <div className="form-group">
