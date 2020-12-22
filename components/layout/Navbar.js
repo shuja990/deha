@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import Link from '../../utils/ActiveLink';
 import SearchForm from './SearchForm';
 import SideDrawer from './SideDrawer';
-
+import {auth} from '../../firebase/firebase.utils'
+import { Router } from 'next/router';
 export class Navbar extends Component {
     _isMounted = false;
 
@@ -172,12 +173,19 @@ export class Navbar extends Component {
                                                     <a className="nav-link">Blog</a>
                                                 </Link>
                                             </li>
+                                            {
+                                                auth.currentUser===null ?
                                             <li className="nav-item">
                                                 <Link activeClassName="active" href="/login">
                                                     <a className="nav-link">Login</a>
                                                 </Link>
+                                            </li>:
+                                                <li className="nav-item">
+                                                {/* <Link activeClassName="active" onClick={()=>auth.signOut()}> */}
+                                                    <a className="nav-link" onClick={()=>{auth.signOut();Router.push('/')}}>Logout</a>
+                                                {/* </Link> */}
                                             </li>
-
+                                            }
                                             <li className="nav-item">
                                                 <Link activeClassName="active" href="/signup">
                                                     <a className="nav-link">Join</a>
@@ -213,43 +221,59 @@ export class Navbar extends Component {
                                             </li>
                                         </ul>
                                     </li> */}
-
-                                    {/* <li className="nav-item">
-                                        <Link href="/products">
+                                    {auth.currentUser!==null ?
+                                    <li className="nav-item">
+                                        <Link href="/My Account">
                                             <a 
                                                 className="nav-link"
                                                 onClick={e => e.preventDefault()}
                                             >
-                                                Shop <i className="icofont-simple-down"></i>
+                                                My Account <i className="icofont-simple-down"></i>
                                             </a>
                                         </Link>
                                         <ul className="dropdown_menu">
                                             <li className="nav-item">
-                                                <Link activeClassName="active" href="/products">
-                                                    <a className="nav-link">Products</a>
+                                                <Link activeClassName="active" href="/notice-board">
+                                                    <a className="nav-link">Notice Board</a>
                                                 </Link>
                                             </li>
                                             
                                             <li className="nav-item">
-                                                <Link activeClassName="active" href="/product-details">
-                                                    <a className="nav-link">Products Details</a>
+                                                <Link activeClassName="active" href="/enforcement-agency-visits">
+                                                    <a className="nav-link">Enforcement Agency Visits</a>
                                                 </Link>
                                             </li>
 
                                             <li className="nav-item">
-                                                <Link activeClassName="active" href="/cart">
-                                                    <a className="nav-link">Cart</a>
+                                                <Link activeClassName="active" href="/resources">
+                                                    <a className="nav-link">Resources</a>
                                                 </Link>
                                             </li>
 
                                             <li className="nav-item">
-                                                <Link activeClassName="active" href="/checkout">
-                                                    <a className="nav-link">Checkout</a>
+                                                <Link activeClassName="active" href="/permits-licenses">
+                                                    <a className="nav-link">Permits & Licenses</a>
+                                                </Link>
+                                            </li>
+                                            <li className="nav-item">
+                                                <Link activeClassName="active" href="/staff-customer-service-development">
+                                                    <a className="nav-link">Staff Customer Service development</a>
+                                                </Link>
+                                            </li>
+                                            <li className="nav-item">
+                                                <Link activeClassName="active" href="/business-education">
+                                                    <a className="nav-link">Business Education</a>
+                                                </Link>
+                                            </li>
+                                            <li className="nav-item">
+                                                <Link activeClassName="active" href="/discounts-and-offerings">
+                                                    <a className="nav-link">Discounts and offerings</a>
                                                 </Link>
                                             </li>
                                         </ul>
-                                    </li> */}
-
+                                    </li>
+                                    :null
+                                    }
                                     {/* <li className="nav-item">
                                         <Link activeClassName="active" href="/contact">
                                             <a className="nav-link">Contact</a>

@@ -2,8 +2,34 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
+import {auth} from '../firebase/firebase.utils'
+import Router from 'next/router'
 
 export class index extends Component {
+    state={
+        email: '',
+        password : '',
+    }
+    handleChange = event => {
+        const {name,value} = event.target;
+        this.setState({[name]: value})
+    }
+    handleSubmit = async event => {
+        event.preventDefault();
+        const {email,password} = this.state;
+        try {
+            await auth.signInWithEmailAndPassword(email,password);
+            Router.push('/')
+            this.setState({email:'',password:''})
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    componentDidMount(){
+        if(auth.email){
+            Router.push('/')
+        }
+    }
     render() {
         return (
             <React.Fragment>
@@ -35,17 +61,17 @@ export class index extends Component {
                                 <div className="login-form">
                                     <h3>Welcome Back!</h3>
                                     <p>Please login to your account.</p>
-                                    <form>
+                                    <form onSubmit={this.handleSubmit}>
                                         <div className="row">
                                             <div className="col-lg-12">
                                                 <div className="form-group">
-                                                    <input type="email" className="form-control" placeholder="Email" />
+                                                    <input type="email" onChange={this.handleChange} value={this.state.email} name="email" className="form-control" placeholder="Email" />
                                                 </div>
                                             </div>
 
                                             <div className="col-lg-12">
                                                 <div className="form-group">
-                                                    <input type="password" className="form-control" placeholder="Password" />
+                                                    <input type="password" onChange={this.handleChange} value={this.state.password} name="password" className="form-control" placeholder="Password" />
                                                 </div>
                                             </div>
 

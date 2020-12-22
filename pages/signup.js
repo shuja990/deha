@@ -17,6 +17,11 @@ export class index extends Component {
         const {name,value} = event.target;
         this.setState({[name]: value})
     }
+    componentDidMount(){
+        if(auth.email){
+            Router.push('/')
+        }
+    }
     handleSubmit = async event => {
         event.preventDefault();
         const {displayName,email,password,address,cell,restaurant,userName} = this.state

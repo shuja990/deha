@@ -24,9 +24,9 @@ export class index extends Component {
                 <Navbar />
                 <Banner /> 
                 <Boxes />
+                <About />
                 <WhyChooseUs />
                 {/* <Services /> */}
-                <About />
                 {/* <Works /> */}
                 {/* <Feedback /> */}
                 {/* <HowWeWork /> */}
