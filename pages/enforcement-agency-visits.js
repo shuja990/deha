@@ -19,17 +19,33 @@ export class index extends Component {
       const that = this;
       let c = [];
       if(auth.currentUser!==null){
-      firestore.collection("agency").where("email", "==", auth.currentUser.email)
-  .get()
-  .then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
-          c.push(doc.data())
-      });
-      that.setState({visits:c})
-  })
-  .catch(function(error) {
-      console.log("Error getting documents: ", error);
-  });
+        if(auth.currentUser.email==="info@linkcaranow.org"){
+          firestore.collection("agency")
+          .get()
+          .then(function(querySnapshot) {
+              querySnapshot.forEach(function(doc) {
+                  c.push(doc.data())
+              });
+              that.setState({visits:c})
+          })
+          .catch(function(error) {
+              console.log("Error getting documents: ", error);
+          });
+        }
+        else{
+          firestore.collection("agency").where("email", "==", auth.currentUser.email)
+          .get()
+          .then(function(querySnapshot) {
+              querySnapshot.forEach(function(doc) {
+                  c.push(doc.data())
+              });
+              that.setState({visits:c})
+          })
+          .catch(function(error) {
+              console.log("Error getting documents: ", error);
+          });
+        }
+    
   }
   }
     addVisit = () => {
