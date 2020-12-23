@@ -6,8 +6,9 @@ import {auth,firestore} from '../firebase/firebase.utils'
 export class index extends Component {
     state = {
         visits: [],
-        agency: '',
-        date: ''
+        agency: 'State Liquor Authority (SLA)',
+        date: '',
+        added: false
     }
     handleChange = event => {
         const {name,value} = event.target;
@@ -39,6 +40,7 @@ export class index extends Component {
             email : auth.currentUser.email
         })
         .then(function(docRef) {
+          that.setState({added:true})
             console.log("Document written with ID: ", docRef.id);
         })
         .catch(function(error) {
@@ -80,7 +82,7 @@ export class index extends Component {
   <tbody>
       {this.state.visits.map((item,idx) => (
           <tr>
-          <th scope="row">{idx}</th>
+          <th scope="row">{idx+1}</th>
           <td>{item.agency}</td>
           <td>{item.date}</td>
         </tr>
@@ -101,8 +103,8 @@ export class index extends Component {
       <div className="modal-body">
         <form>
           <div className="form-group">
-            <label htmlFor="recipient-name" className="col-form-label">Date</label>
-            <input type="date" value={this.state.date} onChange={this.handleChange} name='date' className="form-control" id="recipient-name"/>
+            <label htmlFor="recipient-name" className="col-form-label" >Date</label>
+            <input type="date" value={this.state.date} required onChange={this.handleChange} name='date' className="form-control" id="recipient-name"/>
           </div>
           <label for="sel1">Select list:</label>
             <select class="form-control" id="sel1" value={this.state.agency} onChange={this.handleChange} name='agency'>

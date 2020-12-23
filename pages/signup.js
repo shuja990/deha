@@ -18,7 +18,7 @@ export class index extends Component {
         this.setState({[name]: value})
     }
     componentDidMount(){
-        if(auth.currentUser.email){
+        if(auth.currentUser){
             Router.push('/')
         }
     }

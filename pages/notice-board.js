@@ -46,7 +46,13 @@ export class index extends Component {
             message: that.state.message
         })
         .then(function(docRef) {
-            console.log("Document written with ID: ", docRef.id);
+            that.setState({
+                name:'',
+        email: '',
+        phone: '',
+        restaurant:'',
+        message: ''
+            })
         })
         .catch(function(error) {
             console.error("Error adding document: ", error);
@@ -56,7 +62,7 @@ export class index extends Component {
     render() {
         console.log(auth.currentUser);
         if(auth.currentUser!==null){
-            if(auth.currentUser.email==="info@linkcaranow.org"){
+            if(auth.currentUser.email==="shujaali1234@gmail.com"){
                 return (
                     <React.Fragment>
                 <Navbar />
@@ -90,7 +96,7 @@ export class index extends Component {
   <tbody>
       {this.state.visits.map((item,idx) => (
           <tr>
-          <th scope="row">{idx}</th>
+          <th scope="row">{idx+1}</th>
           <td>{item.name}</td>
           <td>{item.email}</td>
           <td>{item.phone}</td>

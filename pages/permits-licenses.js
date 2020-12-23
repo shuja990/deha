@@ -7,11 +7,12 @@ export class index extends Component {
     state = {
         visits: [],
         agency: 'State Liquor Authority (SLA)',
-        date: ''
+        date: '',
+        added: false
     }
     handleChange = event => {
         const {name,value} = event.target;
-        console.log(value);
+        // console.log(value);
         this.setState({[name]: value})
     }
     componentDidMount(){
@@ -39,6 +40,8 @@ export class index extends Component {
             email : auth.currentUser.email
         })
         .then(function(docRef) {
+          that.setState({added:true})
+
             console.log("Document written with ID: ", docRef.id);
         })
         .catch(function(error) {
@@ -80,7 +83,7 @@ export class index extends Component {
   <tbody>
       {this.state.visits.map((item,idx) => (
           <tr>
-          <th scope="row">{idx}</th>
+          <th scope="row">{idx+1}</th>
           <td>{item.agency}</td>
           <td>{item.date}</td>
         </tr>
@@ -102,7 +105,7 @@ export class index extends Component {
         <form>
           <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label">Expiration Date</label>
-            <input type="date" value={this.state.date} onChange={this.handleChange} name='date' className="form-control" id="recipient-name"/>
+            <input type="date" required value={this.state.date} onChange={this.handleChange} name='date' className="form-control" id="recipient-name"/>
           </div>
           <label for="sel1">Select License:</label>
             <select class="form-control" id="sel1" value={this.state.agency} onChange={this.handleChange} name='agency'>

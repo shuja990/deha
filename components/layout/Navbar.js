@@ -182,7 +182,7 @@ export class Navbar extends Component {
                                             </li>:
                                                 <li className="nav-item">
                                                 {/* <Link activeClassName="active" onClick={()=>auth.signOut()}> */}
-                                                    <a className="nav-link" onClick={()=>{auth.signOut();Router.push('/')}}>Logout</a>
+                                                    <a className="nav-link" onClick={()=>{auth.signOut();window.location.reload(false)}}>Logout</a>
                                                 {/* </Link> */}
                                             </li>
                                             }
