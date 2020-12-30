@@ -991,7 +991,7 @@ Navbar CSS
 Main Banner CSS
 =================================================*/
 .main-banner {
-  background-color: #ffffff;
+  background-color:transparent;
   position: relative;
   z-index: 1;
   height: 810px;
@@ -1262,7 +1262,7 @@ Main Banner CSS
   position: absolute;
   left: 0;
   top: 0;
-  background: #ffffff;
+  /* background: #ffffff; */
   width: 100%;
   height: 80%;
   opacity: 1;
@@ -1450,26 +1450,37 @@ Main Banner CSS
 /* creative-blog-home */
 .item-bg1 {
   background-image: url(../../images/main-bg-1.jpg);
+  opacity: 1;
 }
 
 .item-bg2 {
   background-image: url(../../images/main-bg-2.jpg);
+  opacity: 1;
+
 }
 
 .item-bg3 {
   background-image: url(../../images/main-bg-3.jpg);
+  opacity: 1;
+
 }
 
 .item-bg4 {
   background-image: url(../../images/main-bg-4.jpg);
+  opacity: 1;
+
 }
 
 .item-bg5 {
   background-image: url(../../images/main-bg-5.jpg);
+  opacity: 1;
+
 }
 
 .item-bg6 {
   background-image: url(../../images/main-bg-6.jpg);
+  opacity: 1;
+
 }
 
 .shape1 {

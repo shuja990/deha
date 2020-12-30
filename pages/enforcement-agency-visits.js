@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import {auth,firestore} from '../firebase/firebase.utils'
+import StatusAlert, { StatusAlertService } from 'react-status-alert';
+import 'react-status-alert/dist/status-alert.css';
 export class index extends Component {
     state = {
         visits: [],
@@ -53,9 +55,11 @@ export class index extends Component {
         firestore.collection("agency").add({
             agency:that.state.agency,  
             date: that.state.date,
-            email : auth.currentUser.email
+            email : auth.currentUser.email,
+            datee: new Date()
         })
         .then(function(docRef) {
+    			const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
           that.setState({added:true})
             console.log("Document written with ID: ", docRef.id);
         })
@@ -93,6 +97,7 @@ export class index extends Component {
       <th scope="col">#</th>
       <th scope="col">Agency Name</th>
       <th scope="col">Date</th>
+      <th scope="col">Date Created</th>
     </tr>
   </thead>
   <tbody>
@@ -101,6 +106,7 @@ export class index extends Component {
           <th scope="row">{idx+1}</th>
           <td>{item.agency}</td>
           <td>{item.date}</td>
+          <td>{item.datee}</td>
         </tr>
       ))}
   </tbody>
@@ -140,6 +146,7 @@ export class index extends Component {
     </div>
   </div>
 </div>
+<StatusAlert/> 
                 <Footer />
             </React.Fragment>
         );

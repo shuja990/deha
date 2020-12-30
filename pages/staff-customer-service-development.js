@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import {firestore,auth} from '../firebase/firebase.utils'
+import StatusAlert, { StatusAlertService } from 'react-status-alert';
+import 'react-status-alert/dist/status-alert.css';
 export class index extends Component {
     state = {
         visits: [],
@@ -33,11 +35,13 @@ export class index extends Component {
     }
     addVisit = () => {
         const that = this;
+    			const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
         firestore.collection("staff").add({
             name: that.state.name,
             email: that.state.email,
             phone: that.state.phone,
-            title: that.state.title
+            title: that.state.title,
+            date: new Date()
         })
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
@@ -87,6 +91,8 @@ export class index extends Component {
       <th scope="col">Title</th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
+      <th scope="col">Date</th>
+
     </tr>
   </thead>
   <tbody>
@@ -97,6 +103,7 @@ export class index extends Component {
           <td>{item.title}</td>
           <td>{item.email}</td>
           <td>{item.phone}</td>
+          <td>{item.date}</td>
 
         </tr>
       ))}
@@ -140,6 +147,7 @@ export class index extends Component {
     </div>
   </div>
 </div>
+<StatusAlert/> 
                 <Footer />
             </React.Fragment>
         );

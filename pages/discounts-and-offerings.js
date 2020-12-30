@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-import {auth,firestore} from '../firebase/firebase.utils'
+import {firestore,auth} from '../firebase/firebase.utils'
+import StatusAlert, { StatusAlertService } from 'react-status-alert';
+import 'react-status-alert/dist/status-alert.css';
 export class index extends Component {
     state = {
         visits: [],
-        agency: '',
-        date: ''
+        name: '',
+        title: '',
+        email: '',
+        phone: ''
     }
     handleChange = event => {
         const {name,value} = event.target;
@@ -17,8 +21,7 @@ export class index extends Component {
     componentDidMount(){
         const that = this;
         let c = [];
-        if(auth.currentUser!==null){
-        firestore.collection("visits").where("email", "==", auth.currentUser.email)
+        firestore.collection("discount")
     .get()
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
@@ -30,15 +33,15 @@ export class index extends Component {
         console.log("Error getting documents: ", error);
     });
     }
-    }
     addVisit = () => {
         const that = this;
-        firestore.collection("visits").add({
-            agency:that.state.agency,
-            date: that.state.date,
-            email : auth.email
+        firestore.collection("discount").add({
+            title: that.state.name,
+            link: that.state.email,
         })
         .then(function(docRef) {
+    			const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
+
             console.log("Document written with ID: ", docRef.id);
         })
         .catch(function(error) {
@@ -65,6 +68,61 @@ export class index extends Component {
                         </ul>
                     </div>
                 </div>              
+                <section className="contact-area ptb-120">
+                    <div className="container">
+                      {auth.currentUser!==null
+                       ? <div>
+                           {auth.currentUser.email === "info@linkcaranow.org"
+                           ?
+                           <button type="button" className="btn btn-primary" data-toggle="modal" onClick={this.showModal} data-target="#exampleModal">Add Entry</button>
+                            : null
+                         }
+                       </div>
+                          : <div></div>
+                      }
+                      <h1>Discounts and Offerings</h1>
+                     <div class="list-group">
+                       {
+                         this.state.visits.length>0 ?
+                         this.state.visits.map(item=>(
+                           <a href={item.link} class="list-group-item list-group-item-action">{item.title}</a>
+                         ))
+                        :  <a href="#" class="list-group-item list-group-item-action active">No Discounts and Offerings Found
+                    </a>
+                       }
+              
+                  </div>
+                    </div>
+                </section>
+<div className="modal" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog" role="document">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title" id="exampleModalLabel">Add New Link</h5>
+        <button type="button" onClick={()=>{ document.getElementById("exampleModal").style.display = "none"}} className="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="modal-body">
+        <form>
+          <div className="form-group">
+            <label htmlFor="recipient-name" className="col-form-label">Title</label>
+            <input type="text" value={this.state.name} onChange={this.handleChange} name='name' className="form-control" id="recipient-name"/>
+          </div>
+          <div className="form-group">
+            <label htmlFor="recipient-name" className="col-form-label">Link</label>
+            <input type="text" value={this.state.title} onChange={this.handleChange} name='title' className="form-control" id="recipient-name"/>
+          </div>
+          </form>
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" onClick={()=>{ document.getElementById("exampleModal").style.display = "none"}} data-dismiss="modal">Close</button>
+        <button type="button" className="btn btn-primary" onClick={()=>{this.addVisit(); document.getElementById("exampleModal").style.display = "none"}}>Add Entry</button>
+      </div>
+    </div>
+  </div>
+</div>
+<StatusAlert/> 
                 <Footer />
             </React.Fragment>
         );

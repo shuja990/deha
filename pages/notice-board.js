@@ -3,7 +3,8 @@ import Link from 'next/link';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import {auth,firestore} from '../firebase/firebase.utils'
-
+import StatusAlert, { StatusAlertService } from 'react-status-alert';
+import 'react-status-alert/dist/status-alert.css';
 export class index extends Component {
     state= {
         name:'',
@@ -43,9 +44,11 @@ export class index extends Component {
             name: that.state.name,
             email: that.state.email,
             phone: that.state.phone,
-            message: that.state.message
+            message: that.state.message,
+            date: new Date()
         })
         .then(function(docRef) {
+          const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
             that.setState({
                 name:'',
         email: '',
@@ -91,6 +94,7 @@ export class index extends Component {
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
       <th scope="col">Message</th>
+      <th scope="col">Date Created</th>
     </tr>
   </thead>
   <tbody>
@@ -101,13 +105,15 @@ export class index extends Component {
           <td>{item.email}</td>
           <td>{item.phone}</td>
           <td>{item.message}</td>
-
+          <td>{item.date}</td>
         </tr>
       ))}
   </tbody>
 </table>
                     </div>
                 </section>
+<StatusAlert/> 
+
                 <Footer />
             </React.Fragment>
 
@@ -185,6 +191,43 @@ export class index extends Component {
                         </div>
                     </div>
                 </section>
+                <section className="ptb-120 pt-0">
+                    <div className="container">
+{/* <button type="button" className="btn btn-primary" data-toggle="modal" onClick={this.showModal} data-target="#exampleModal">Add Entry</button> */}
+
+                    <table className="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Message</th>
+      <th scope="col">Date Created</th>
+    </tr>
+  </thead>
+  <tbody>
+      {this.state.visits.map((item,idx) => {
+          if(item.email === auth.currentUser.email) 
+      return(
+          <tr>
+          <th scope="row">{idx+1}</th>
+          <td>{item.name}</td>
+          <td>{item.email}</td>
+          <td>{item.phone}</td>
+          <td>{item.message}</td>
+          <td>{item.date}</td>
+        </tr>
+      )
+    
+    }
+      )
+      }
+  </tbody>
+</table>
+                    </div>
+                </section>
+                <StatusAlert/> 
 
                 <Footer />
             </React.Fragment>
@@ -211,6 +254,8 @@ export class index extends Component {
             <div>
                 <h3>You Need to be Signed in to access this page</h3>
             </div>
+            <StatusAlert/> 
+
             <Footer/>
             </React.Fragment>     
         )
