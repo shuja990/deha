@@ -45,6 +45,7 @@ export class index extends Component {
             email: that.state.email,
             phone: that.state.phone,
             message: that.state.message,
+            restaurant: that.state.restaurant,
             date: new Date()
         })
         .then(function(docRef) {
@@ -90,9 +91,8 @@ export class index extends Component {
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
+      <th scope="col">Owner Name</th>
+      <th scope="col">Restaurant</th>
       <th scope="col">Message</th>
       <th scope="col">Date Created</th>
     </tr>
@@ -102,8 +102,7 @@ export class index extends Component {
           <tr>
           <th scope="row">{idx+1}</th>
           <td>{item.name}</td>
-          <td>{item.email}</td>
-          <td>{item.phone}</td>
+          <td>{item.restaurant}</td>
           <td>{item.message}</td>
           <td>{item.date}</td>
         </tr>
@@ -199,9 +198,8 @@ export class index extends Component {
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
+      <th scope="col">Owner Name</th>
+      <th scope="col">Restaurant</th>
       <th scope="col">Message</th>
       <th scope="col">Date Created</th>
     </tr>
@@ -213,8 +211,7 @@ export class index extends Component {
           <tr>
           <th scope="row">{idx+1}</th>
           <td>{item.name}</td>
-          <td>{item.email}</td>
-          <td>{item.phone}</td>
+          <td>{item.restaurant}</td>
           <td>{item.message}</td>
           <td>{item.date}</td>
         </tr>

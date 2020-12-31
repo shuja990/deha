@@ -10,7 +10,8 @@ export class index extends Component {
         visits: [],
         agency: 'State Liquor Authority (SLA)',
         date: '',
-        added: false
+        added: false,
+        restaurant : ''
     }
     handleChange = event => {
         const {name,value} = event.target;
@@ -56,6 +57,7 @@ export class index extends Component {
             agency:that.state.agency,  
             date: that.state.date,
             email : auth.currentUser.email,
+            restaurant: that.state.restaurant,
             datee: new Date()
         })
         .then(function(docRef) {
@@ -96,6 +98,7 @@ export class index extends Component {
     <tr>
       <th scope="col">#</th>
       <th scope="col">Agency Name</th>
+      <th scope="col">Restaurant</th>
       <th scope="col">Date</th>
       <th scope="col">Date Created</th>
     </tr>
@@ -105,6 +108,7 @@ export class index extends Component {
           <tr>
           <th scope="row">{idx+1}</th>
           <td>{item.agency}</td>
+          <td>{item.restaurant}</td>
           <td>{item.date}</td>
           <td>{item.datee}</td>
         </tr>
@@ -128,10 +132,15 @@ export class index extends Component {
             <label htmlFor="recipient-name" className="col-form-label" >Date</label>
             <input type="date" value={this.state.date} required onChange={this.handleChange} name='date' className="form-control" id="recipient-name"/>
           </div>
+          <div className="form-group">
+            <label htmlFor="recipient-name" className="col-form-label" >Restaurant</label>
+            <input type="text" value={this.state.restaurant} required onChange={this.handleChange} name='restaurant' className="form-control" id="recipient-name"/>
+          </div>
           <label for="sel1">Select list:</label>
             <select class="form-control" id="sel1" value={this.state.agency} onChange={this.handleChange} name='agency'>
                 <option>State Liquor Authority (SLA)</option>
-                <option>Police Department</option>
+                <option>Transportation Department</option>
+                <option>Taxi & Limousine Commission</option>
                 <option>Health Department</option>
                 <option>Police Department</option>
                 <option>Building Department</option>

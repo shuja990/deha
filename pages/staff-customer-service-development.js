@@ -11,6 +11,7 @@ export class index extends Component {
         name: '',
         title: '',
         email: '',
+        restaurant: '',
         phone: ''
     }
     handleChange = event => {
@@ -41,6 +42,7 @@ export class index extends Component {
             email: that.state.email,
             phone: that.state.phone,
             title: that.state.title,
+            restaurant: that.state.restaurant,
             date: new Date()
         })
         .then(function(docRef) {
@@ -87,6 +89,7 @@ export class index extends Component {
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Restaurant</th>
       <th scope="col">Name</th>
       <th scope="col">Title</th>
       <th scope="col">Email</th>
@@ -99,6 +102,7 @@ export class index extends Component {
       {this.state.visits.map((item,idx) => (
           <tr>
           <th scope="row">{idx}</th>
+          <td>{item.restaurant}</td>
           <td>{item.name}</td>
           <td>{item.title}</td>
           <td>{item.email}</td>
@@ -137,6 +141,10 @@ export class index extends Component {
           <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label">Phone</label>
             <input type="number" value={this.state.phone} onChange={this.handleChange} name='phone' className="form-control" id="recipient-name"/>
+          </div>
+          <div className="form-group">
+            <label htmlFor="recipient-name" className="col-form-label" >Restaurant</label>
+            <input type="text" value={this.state.restaurant} required onChange={this.handleChange} name='restaurant' className="form-control" id="recipient-name"/>
           </div>
         </form>
       </div>

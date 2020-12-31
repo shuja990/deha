@@ -41,7 +41,7 @@ export class Partner extends Component {
                             className="partner-slides owl-carousel owl-theme"
                             {...options}
                         >
-                            <div className="col-lg-12">
+                            {/* <div className="col-lg-12">
                                 <div className="partner-item">
                                     <Link href="#">
                                         <a>
@@ -61,7 +61,7 @@ export class Partner extends Component {
                                         </a>
                                     </Link>
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div className="col-lg-12">
                                 <div className="partner-item">

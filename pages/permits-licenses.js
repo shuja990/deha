@@ -10,6 +10,7 @@ export class index extends Component {
         visits: [],
         agency: 'State Liquor Authority (SLA)',
         date: '',
+        restaurant:'',
         added: false
     }
     handleChange = event => {
@@ -56,6 +57,7 @@ export class index extends Component {
             agency:that.state.agency,
             date: that.state.date,
             email : auth.currentUser.email,
+            restaurant: that.state.restaurant,
             datee : new Date()
         })
         .then(function(docRef) {
@@ -97,6 +99,7 @@ export class index extends Component {
     <tr>
       <th scope="col">#</th>
       <th scope="col">License Name</th>
+      <th scope="col">Restaurant</th>
       <th scope="col">Expiration Date</th>
       <th scope="col">Date Created</th>
 
@@ -107,6 +110,7 @@ export class index extends Component {
           <tr>
           <th scope="row">{idx+1}</th>
           <td>{item.agency}</td>
+          <td>{item.restaurant}</td>
           <td>{item.date}</td>
           <td>{item.datee}</td>
 
@@ -130,6 +134,10 @@ export class index extends Component {
           <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label">Expiration Date</label>
             <input type="date" required value={this.state.date} onChange={this.handleChange} name='date' className="form-control" id="recipient-name"/>
+          </div>
+          <div className="form-group">
+            <label htmlFor="recipient-name" className="col-form-label" >Restaurant</label>
+            <input type="text" value={this.state.restaurant} required onChange={this.handleChange} name='restaurant' className="form-control" id="recipient-name"/>
           </div>
           <label for="sel1">Select License:</label>
             <select class="form-control" id="sel1" value={this.state.agency} onChange={this.handleChange} name='agency'>
