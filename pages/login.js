@@ -97,7 +97,7 @@ export class index extends Component {
                                             </div>
 
                                             <div className="col-lg-6 text-right">
-                                                <p className="forgot-password"><a onClick={this.setState({forgot:true})}>Forgot Password?</a></p>
+                                                <p className="forgot-password"><a onClick={()=>this.setState({forgot:true})}>Forgot Password?</a></p>
                                             </div>
 
                                             <div className="col-lg-12">
