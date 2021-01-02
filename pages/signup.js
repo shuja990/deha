@@ -28,13 +28,13 @@ export class index extends Component {
     handleSubmit = async event => {
         event.preventDefault();
         const that = this
-        const {displayName,email,password,address,cell,restaurant,userName} = this.state
+        const {displayName,email,password,address,cell,restaurant} = this.state
         try {
             const {user} = await auth.createUserWithEmailAndPassword(
                 email,
                 password
             );
-            await createUserProfileDocument(user,{displayName,address,cell,restaurant,userName});
+            await createUserProfileDocument(user,{displayName,address,cell,restaurant});
             // const router = useRouter()
             fetch("https://us-central1-deha-d254a.cloudfunctions.net/api/register",{
                 method:'post',
@@ -62,7 +62,6 @@ export class index extends Component {
                 address: '',
                 cell: '',
                 restaurant: '',
-                userName: ''
             })
         } catch (error) {
             const alertId = StatusAlertService.showError("Could not Signup. Please try again later");

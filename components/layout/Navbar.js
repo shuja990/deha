@@ -194,14 +194,14 @@ export class Navbar extends Component {
                                                 {/* </Link> */}
       
                                             </li>
-                                            {auth.currentUser==="info@linkcaranow.org" ?
+                                            {/* {auth.currentUser==="shujaali1234@gmail.com" ? */}
                                             <li className="nav-item">
                                                 <Link activeClassName="active" href="/users">
                                                     <a className="nav-link">Users</a>
                                                 </Link>
                                             </li>
-                                            : null
-                                            }
+                                            {/* : null */}
+                                            {/* } */}
                                             </>
                                             }
 
