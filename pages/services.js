@@ -42,7 +42,7 @@ export class index extends Component {
                                     <div className="icon">
                                         <i className="icofont-brand-designfloat"></i>
                                     </div>
-                                    <h3>Assitance</h3>
+                                    <h3>Assistance</h3>
                                     <p>Focus on assisting members with COVID-19 compliance, resource availability, and financial stimulus eligibility to ensure support once available.</p>
                                 </div>
                             </div>

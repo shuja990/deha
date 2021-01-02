@@ -4,6 +4,41 @@ import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 
 export class index extends Component {
+    state = {
+        name:"",
+        email:"",
+        restuarant:"",
+        phone:"",
+        message:""
+    }
+    handleChange = event => {
+        const {name,value} = event.target;
+        // console.log(value);
+        this.setState({[name]: value})
+    }
+    handleSubmit = e => {
+        e.preventDefault();
+        const that = this
+        fetch("https://us-central1-deha-d254a.cloudfunctions.net/api/contact",{
+            method:'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              email: that.state.email,
+              restaurant: that.state.restaurant,
+              phone: that.state.phone,
+              name: that.state.name,
+              message:that.state.message
+						})
+          })
+          .then(respone=>respone.json())
+          .then(res =>{
+          console.log('complete')
+          })
+          .catch(function(error) {
+             alert("Error")
+           }); 
+          
+    }
     render() {
         return (
             <React.Fragment>
@@ -40,7 +75,7 @@ export class index extends Component {
                                     <div className="icon">
                                         <i className="icofont-google-map"></i>
                                     </div>
-                                    <h3>Visit Here</h3>
+                                    <h3>Address</h3>
                                     <p>3510 Church Ave, Brooklyn, NY 11203</p>
                                 </div>
                             </div>
@@ -75,33 +110,33 @@ export class index extends Component {
                                     <div className="row">
                                         <div className="col-lg-12 col-md-12">
                                             <div className="form-group">
-                                                <input type="text" className="form-control" required={true} data-error="Please enter your name" placeholder="Name" />
+                                                <input type="text" className="form-control" name="name" value={this.state.name} onChange={this.handleChange} required={true} data-error="Please enter your name" placeholder="Name" />
                                                 <div className="help-block with-errors"></div>
                                             </div>
                                         </div>
 
                                         <div className="col-lg-12 col-md-12">
                                             <div className="form-group">
-                                                <input type="email" className="form-control" required={true} data-error="Please enter your email" placeholder="Email" />
+                                                <input type="email" className="form-control" name="email" value={this.state.email} onChange={this.handleChange} required={true} data-error="Please enter your email" placeholder="Email" />
                                                 <div className="help-block with-errors"></div>
                                             </div>
                                         </div>
 
                                         <div className="col-lg-12 col-md-6">
                                             <div className="form-group">
-                                                <input type="text" className="form-control" placeholder="Phone" />
+                                                <input type="text" className="form-control" name="phone" value={this.state.phone} onChange={this.handleChange} placeholder="Phone" />
                                             </div>
                                         </div>
 
                                         <div className="col-lg-12 col-md-6">
                                             <div className="form-group">
-                                                <input type="text" className="form-control" placeholder="Restaurant" />
+                                                <input type="text" className="form-control" name="restaurant" value={this.state.restuarant} onChange={this.handleChange} placeholder="Restaurant" />
                                             </div>
                                         </div>
 
                                         <div className="col-lg-12 col-md-12">
                                             <div className="form-group">
-                                                <textarea name="message" className="form-control" id="message" cols="30" rows="5" required data-error="Write your message" placeholder="Your Message" />
+                                                <textarea name="message" className="form-control" name="message" value={this.state.message} onChange={this.handleChange} id="message" cols="30" rows="5" required data-error="Write your message" placeholder="Your Message" />
                                                 <div className="help-block with-errors"></div>
                                             </div>
                                         </div>

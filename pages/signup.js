@@ -4,6 +4,9 @@ import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import {auth,createUserProfileDocument} from '../firebase/firebase.utils'
 import Router from 'next/router'
+import StatusAlert, { StatusAlertService } from 'react-status-alert';
+import 'react-status-alert/dist/status-alert.css';
+
 export class index extends Component {
     state={
         displayName: '',
@@ -24,6 +27,7 @@ export class index extends Component {
     }
     handleSubmit = async event => {
         event.preventDefault();
+        const that = this
         const {displayName,email,password,address,cell,restaurant,userName} = this.state
         try {
             const {user} = await auth.createUserWithEmailAndPassword(
@@ -32,6 +36,24 @@ export class index extends Component {
             );
             await createUserProfileDocument(user,{displayName,address,cell,restaurant,userName});
             // const router = useRouter()
+            fetch("https://us-central1-deha-d254a.cloudfunctions.net/api/register",{
+                method:'post',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    name: that.state.displayName,
+                    email: that.state.email,
+                    address: that.state.address,
+                    phone: that.state.cell,
+                    restaurant: that.state.restaurant,
+                })
+              })
+              .then(respone=>respone.json())
+              .then(res =>{
+              console.log('complete')
+              })
+              .catch(function(error) {
+                 alert("Error")
+               });
             Router.push('/')
             this.setState({
                 displayName: '',
@@ -43,6 +65,7 @@ export class index extends Component {
                 userName: ''
             })
         } catch (error) {
+            const alertId = StatusAlertService.showError("Could not Signup. Please try again later");
             console.error(error)
         }
     }
@@ -72,12 +95,11 @@ export class index extends Component {
                                     <h3>Create your Account</h3>
                                     <form onSubmit={this.handleSubmit}>
                                         <div className="row">
-                                            <div className="col-lg-12">
+                                        <div className="col-lg-12">
                                                 <div className="form-group">
-                                                    <input type="text" className="form-control" value={this.state.userName} name="userName" onChange={this.handleChange} placeholder="Username" />
+                                                    <input type="email" className="form-control" value={this.state.email} name="email" onChange={this.handleChange} placeholder="Email" />
                                                 </div>
                                             </div>
-                                            
                                             <div className="col-lg-12">
                                                 <div className="form-group">
                                                     <input type="password" className="form-control" value={this.state.password} name="password" onChange={this.handleChange} placeholder="Password" />
@@ -88,11 +110,7 @@ export class index extends Component {
                                                     <input type="text" className="form-control" value={this.state.displayName} name="displayName" onChange={this.handleChange} placeholder="Restaurant Owner Name" />
                                                 </div>
                                             </div>
-                                            <div className="col-lg-12">
-                                                <div className="form-group">
-                                                    <input type="email" className="form-control" value={this.state.email} name="email" onChange={this.handleChange} placeholder="Email" />
-                                                </div>
-                                            </div>
+                                      
 
 
                                             <div className="col-lg-12">
@@ -136,7 +154,7 @@ export class index extends Component {
                         </div>
                     </div>
                 </section>
-
+            <StatusAlert/>
                 <Footer />
             </React.Fragment>
         );

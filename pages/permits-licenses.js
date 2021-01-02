@@ -22,7 +22,7 @@ export class index extends Component {
         const that = this;
         let c = [];
         if(auth.currentUser!==null){
-          if(auth.currentUser.email==="info@linkcaranow.org"){
+          if(auth.currentUser.email==="shujaali1234@gmail.com"){
             firestore.collection("visits")
             .get()
             .then(function(querySnapshot) {
@@ -52,16 +52,33 @@ export class index extends Component {
     }
     }
     addVisit = () => {
+      let datse = new Date(this.state.date).toDateString()
         const that = this;
         firestore.collection("visits").add({
             agency:that.state.agency,
-            date: that.state.date,
+            date: datse,
             email : auth.currentUser.email,
             restaurant: that.state.restaurant,
-            datee : new Date()
+            datee : new Date().toDateString()
         })
         .then(function(docRef) {
     			const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
+          fetch("https://us-central1-deha-d254a.cloudfunctions.net/api/action",{
+            method:'post',
+						headers: {'Content-Type': 'application/json'},
+						body: JSON.stringify({
+              email: auth.currentUser.email,
+              restaurant: that.state.restaurant,
+              action: `Added Permit ${that.state.agency}`
+						})
+          })
+          .then(respone=>respone.json())
+          .then(res =>{
+          console.log('complete')
+          })
+          .catch(function(error) {
+             alert("Error")
+           });
           that.setState({added:true})
 
             console.log("Document written with ID: ", docRef.id);
@@ -74,6 +91,7 @@ export class index extends Component {
         document.getElementById("exampleModal").style.display = "block"
     }
     render() {
+      console.log(this.state.visits);
         return (
             <React.Fragment>
                 <Navbar />

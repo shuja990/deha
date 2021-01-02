@@ -46,11 +46,27 @@ export class index extends Component {
             phone: that.state.phone,
             message: that.state.message,
             restaurant: that.state.restaurant,
-            date: new Date()
+            date: new Date().toDateString()
         })
         .then(function(docRef) {
           const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
-            that.setState({
+          fetch("https://us-central1-deha-d254a.cloudfunctions.net/api/action",{
+            method:'post',
+						headers: {'Content-Type': 'application/json'},
+						body: JSON.stringify({
+              email: auth.currentUser.email,
+              restaurant: that.state.restaurant,
+              action: `Added to Notice Board ${that.state.message}`
+						})
+          })
+          .then(respone=>respone.json())
+          .then(res =>{
+          console.log('complete')
+          })
+          .catch(function(error) {
+             alert("Error")
+           }); 
+          that.setState({
                 name:'',
         email: '',
         phone: '',

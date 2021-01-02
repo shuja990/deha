@@ -175,22 +175,36 @@ export class Navbar extends Component {
                                             </li> */}
                                             {
                                                 auth.currentUser===null ?
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/login">
-                                                    <a className="nav-link">Login</a>
-                                                </Link>
-                                            </li>:
-                                                <li className="nav-item">
-                                                {/* <Link activeClassName="active" onClick={()=>auth.signOut()}> */}
-                                                    <a className="nav-link" onClick={()=>{auth.signOut();window.location.reload(false)}}>Logout</a>
-                                                {/* </Link> */}
-                                            </li>
-                                            }
+                                                <>
                                             <li className="nav-item">
                                                 <Link activeClassName="active" href="/signup">
                                                     <a className="nav-link">Join</a>
                                                 </Link>
                                             </li>
+                                            <li className="nav-item">
+                                                <Link activeClassName="active" href="/login">
+                                                    <a className="nav-link">Login</a>
+                                                </Link>
+                                            </li>
+                                            </>:
+                                            <>
+                                                <li className="nav-item">
+                                                {/* <Link activeClassName="active" onClick={()=>auth.signOut()}> */}
+                                                    <a className="nav-link" onClick={()=>{auth.signOut();window.location.reload(false)}}>Logout</a>
+                                                {/* </Link> */}
+      
+                                            </li>
+                                            {auth.currentUser==="info@linkcaranow.org" ?
+                                            <li className="nav-item">
+                                                <Link activeClassName="active" href="/users">
+                                                    <a className="nav-link">Users</a>
+                                                </Link>
+                                            </li>
+                                            : null
+                                            }
+                                            </>
+                                            }
+
 
                                     {/* <li className="nav-item">
                                         <a href="#" className="nav-link">Blog <i className="icofont-simple-down"></i></a>

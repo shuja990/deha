@@ -24,7 +24,7 @@ export class index extends Component {
             Router.push('/')
             this.setState({email:'',password:''})
         } catch (error) {
-            console.log(error)
+            const alertId = StatusAlertService.showError("Could not Login. Please try again later or check your email/password");
         }
     }
     componentDidMount(){

@@ -8,10 +8,12 @@ import 'react-status-alert/dist/status-alert.css';
 export class index extends Component {
     state = {
         visits: [],
-        agency: 'State Liquor Authority (SLA)',
-        date: '',
         added: false,
-        restaurant : ''
+        restaurant : '',
+        name:'',
+        email:'',
+        cell:'',
+        address:''
     }
     handleChange = event => {
         const {name,value} = event.target;
@@ -23,7 +25,7 @@ export class index extends Component {
       let c = [];
       if(auth.currentUser!==null){
         if(auth.currentUser.email==="info@linkcaranow.org"){
-          firestore.collection("agency")
+          firestore.collection("users")
           .get()
           .then(function(querySnapshot) {
               querySnapshot.forEach(function(doc) {
@@ -36,7 +38,7 @@ export class index extends Component {
           });
         }
         else{
-          firestore.collection("agency").where("email", "==", auth.currentUser.email)
+          firestore.collection("users").where("email", "==", auth.currentUser.email)
           .get()
           .then(function(querySnapshot) {
               querySnapshot.forEach(function(doc) {
@@ -51,24 +53,32 @@ export class index extends Component {
     
   }
   }
-    addVisit = () => {
-        const that = this;
-        firestore.collection("agency").add({
-            agency:that.state.agency,  
-            date: that.state.date,
-            email : auth.currentUser.email,
-            restaurant: that.state.restaurant,
-            datee: new Date().toDateString()
-        })
-        .then(function(docRef) {
-    			const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
-          fetch("https://us-central1-deha-d254a.cloudfunctions.net/api/action",{
+  permitEmail = () => {
+      let c = []
+    firestore.collection("visits")
+    .get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            let cd = doc.data()
+            let currentDate = new Date()
+            let expire = new Date(cd.date)
+            let days = Math.floor((Date.UTC(expire.getFullYear(), expire.getMonth(), expire.getDate()) - Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()) ) /(1000 * 60 * 60 * 24))
+            console.log(days);
+            if(days===60){
+                c.push(cd)
+                // console.log(cd);
+            }
+            // console.log(c);
+        });
+        let s = []
+        c.forEach(element => {
+            s.push(element.email)
+        });
+        fetch("https://us-central1-deha-d254a.cloudfunctions.net/api/permit",{
             method:'post',
 						headers: {'Content-Type': 'application/json'},
 						body: JSON.stringify({
-              email: auth.currentUser.email,
-              restaurant: that.state.restaurant,
-              action: `Add Enforcement agency Visit ${that.state.agency}`
+              email:s
 						})
           })
           .then(respone=>respone.json())
@@ -76,57 +86,92 @@ export class index extends Component {
           console.log('complete')
           })
           .catch(function(error) {
-             alert("Error")
+             console.log(error);
            });
-          that.setState({added:true})
-            console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+  
+  }
+    addVisit = () => {
+        const that = this;
+        let docId = ""
+        firestore.collection("users").where('email','==',that.state.email).get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(async function(doc) {
+                // c.push(doc.data())
+                docId = doc.id;
+            });
+            var washingtonRef = firestore.collection("users").doc(docId)
+        return washingtonRef.update({
+            displayName:that.state.name,
+            restaurant:that.state.restaurant,
+            email:that.state.email,
+            cell:that.state.cell,
+            address:that.state.address
+        })
+        .then(function() {
+    			const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
+                  that.setState({added:true})
         })
         .catch(function(error) {
-            console.error("Error adding document: ", error);
+    			const alertId = StatusAlertService.showError('An error occured while updating. Thank you for Caribbean American Restaurant Association.');
+        });
+        
+        })
+        .catch(function(error) {
+            const alertId = StatusAlertService.showError('An error occured while updating. Thank you for Caribbean American Restaurant Association.');
         });
     }
     showModal = () => {
         document.getElementById("exampleModal").style.display = "block"
     }
     render() {
+        if(auth.currentUser!==null){
+            if(auth.currentUser.email==="shujaali1234@gmail.com"){
         return (
             <React.Fragment>
                 <Navbar />
                 <div className="page-title-area item-bg1">
                     <div className="container">
-                        <h1>Enforcement Agency Visits</h1>
+                        <h1>Users</h1>
                         <ul>
                             <li>
                                 <Link href="/">
                                     <a>Home</a>
                                 </Link>
                             </li>
-                            <li>Enforcement Agency Visits</li>
+                            <li>Users</li>
                         </ul>
                     </div>
                 </div>              
                 <section className="contact-area ptb-120">
                     <div className="container">
-<button type="button" className="btn btn-primary" data-toggle="modal" onClick={this.showModal} data-target="#exampleModal">Add Entry</button>
+<button type="button" className="btn btn-primary" data-toggle="modal" onClick={this.permitEmail} data-target="#exampleModal">Send Permit Reminder</button>
 
                     <table className="table">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Agency Name</th>
+      <th scope="col">Name</th>
       <th scope="col">Restaurant</th>
-      <th scope="col">Date</th>
-      <th scope="col">Date Created</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Edit</th>
     </tr>
   </thead>
   <tbody>
       {this.state.visits.map((item,idx) => (
           <tr>
           <th scope="row">{idx+1}</th>
-          <td>{item.agency}</td>
+          <td>{item.displayName}</td>
           <td>{item.restaurant}</td>
-          <td>{item.date}</td>
-          <td>{item.datee}</td>
+          <td>{item.address}</td>
+          <td>{item.cell}</td>
+          <td>{item.email}</td>
+          <td onClick={()=>{this.setState({name:item.displayName,restaurant:item.restaurant,address:item.address,cell:item.cell,email:item.email});this.showModal()}}>Edit</td>
         </tr>
       ))}
   </tbody>
@@ -145,23 +190,25 @@ export class index extends Component {
       <div className="modal-body">
         <form>
           <div className="form-group">
-            <label htmlFor="recipient-name" className="col-form-label" >Date</label>
-            <input type="date" value={this.state.date} required onChange={this.handleChange} name='date' className="form-control" id="recipient-name"/>
+            <label htmlFor="recipient-name" className="col-form-label" >Name</label>
+            <input type="text" value={this.state.name} required onChange={this.handleChange} name='name' className="form-control" id="recipient-name"/>
           </div>
           <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label" >Restaurant</label>
             <input type="text" value={this.state.restaurant} required onChange={this.handleChange} name='restaurant' className="form-control" id="recipient-name"/>
           </div>
-          <label for="sel1">Select list:</label>
-            <select class="form-control" id="sel1" value={this.state.agency} onChange={this.handleChange} name='agency'>
-                <option>State Liquor Authority (SLA)</option>
-                <option>Transportation Department</option>
-                <option>Taxi & Limousine Commission</option>
-                <option>Health Department</option>
-                <option>Police Department</option>
-                <option>Building Department</option>
-                <option>Fire Department</option>
-            </select>
+          <div className="form-group">
+            <label htmlFor="recipient-name" className="col-form-label" >Address</label>
+            <input type="text" value={this.state.address} required onChange={this.handleChange} name='address' className="form-control" id="recipient-name"/>
+          </div>
+          <div className="form-group">
+            <label htmlFor="recipient-name" className="col-form-label" >Phone No</label>
+            <input type="text" value={this.state.cell} required onChange={this.handleChange} name='cell' className="form-control" id="recipient-name"/>
+          </div>
+          <div className="form-group">
+            <label htmlFor="recipient-name" className="col-form-label" >Email</label>
+            <input type="text" value={this.state.email} required disabled onChange={this.handleChange} name='email' className="form-control" id="recipient-name"/>
+          </div>
         </form>
       </div>
       <div className="modal-footer">
@@ -176,6 +223,14 @@ export class index extends Component {
             </React.Fragment>
         );
     }
+    else{
+        return <div/>
+    }
+}
+else{
+    return <div/>
+}
+}
 }
 
 export default index;
