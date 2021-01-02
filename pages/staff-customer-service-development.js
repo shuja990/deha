@@ -43,7 +43,7 @@ export class index extends Component {
             phone: that.state.phone,
             title: that.state.title,
             restaurant: that.state.restaurant,
-            date: new Date()
+            date: new Date().toDateString()
         })
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);

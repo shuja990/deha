@@ -129,7 +129,7 @@ export class index extends Component {
     }
     render() {
         if(auth.currentUser!==null){
-            if(auth.currentUser.email==="shujaali1234@gmail.com"){
+            if(auth.currentUser.email==="info@linkcaranow.org"){
         return (
             <React.Fragment>
                 <Navbar />
