@@ -436,7 +436,7 @@ Navbar CSS
                 a {
                     font: {
                         weight: 500;
-                        size: 14px;
+                        size: 17px;
                     }
                     color: $black-color;
                     padding: {
@@ -1191,7 +1191,7 @@ Main Banner CSS
             content: '';
             width: 100%;
             height: 100%;
-            // background-image: url(../../images/dot.png);
+            background-image: url(../../images/dot.png);
             left: 0;
             top: 0;
         }
@@ -3276,7 +3276,7 @@ Page Title CSS
         content: '';
         width: 100%;
         height: 100%;
-        // background-image: url(../../images/dot.png);
+        background-image: url(../../images/dot.png);
         left: 0;
         top: 0;
     }

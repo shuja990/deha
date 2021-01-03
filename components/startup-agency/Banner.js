@@ -42,7 +42,7 @@ export class Banner extends Component {
                         <div className="d-table-cell">
                             <div className="container">
                                 <div className="row h-100 align-items-center">
-                                    <div className="col-lg-7 col-md-12">
+                                    <div className="col-lg-8 col-md-12">
                                         <div className="hero-image">
                                             <img src={require("../../images/startup-agency-slider/1.jpg")} alt="image" />
                                         </div>
@@ -50,7 +50,7 @@ export class Banner extends Component {
                                     
                                     <VisibilitySensor>
                                         {({ isVisible }) => (
-                                            <div className="col-lg-5 col-md-12">
+                                            <div className="col-lg-4 col-md-12">
                                                 {/* <div className="hero-content"> */}
                                                     <h1
                                                         className={
@@ -82,7 +82,7 @@ export class Banner extends Component {
                         <div className="d-table-cell">
                             <div className="container">
                                 <div className="row h-100 align-items-center">
-                                    <div className="col-lg-7 col-md-12">
+                                    <div className="col-lg-8 col-md-12">
                                         <div className="hero-image">
                                             <img src={require("../../images/startup-agency-slider/2.jpg")} alt="image" />
                                         </div>
@@ -90,7 +90,7 @@ export class Banner extends Component {
                                     
                                     <VisibilitySensor>
                                         {({ isVisible }) => (
-                                            <div className="col-lg-5 col-md-12">
+                                            <div className="col-lg-4 col-md-12">
                                                 {/* <div className="hero-content"> */}
                                                     <h1
                                                         className={
@@ -122,7 +122,7 @@ export class Banner extends Component {
                         <div className="d-table-cell">
                             <div className="container">
                                 <div className="row h-100 align-items-center">
-                                    <div className="col-lg-7 col-md-12">
+                                    <div className="col-lg-8 col-md-12">
                                         <div className="hero-image">
                                             <img src={require("../../images/startup-agency-slider/3.jpg")} alt="image" />
                                         </div>
@@ -130,7 +130,7 @@ export class Banner extends Component {
                                     
                                     <VisibilitySensor>
                                         {({ isVisible }) => (
-                                            <div className="col-lg-5 col-md-12">
+                                            <div className="col-lg-4 col-md-12">
                                                 {/* <div className="hero-content"> */}
                                                     <h1
                                                         className={

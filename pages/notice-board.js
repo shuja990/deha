@@ -22,7 +22,7 @@ export class index extends Component {
     componentDidMount(){
         const that = this;
         let c = [];
-        console.log(auth.email);
+        // console.log(auth.email);
         firestore.collection("notice")
     .get()
     .then(function(querySnapshot) {
@@ -41,9 +41,9 @@ export class index extends Component {
         e.preventDefault();
         const that = this;
         firestore.collection("notice").add({
-            name: that.state.name,
-            email: that.state.email,
-            phone: that.state.phone,
+            // name: that.state.name,
+            email: auth.currentUser.email,
+            // phone: that.state.phone,
             message: that.state.message,
             restaurant: that.state.restaurant,
             date: new Date().toDateString()
@@ -107,7 +107,7 @@ export class index extends Component {
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Owner Name</th>
+      {/* <th scope="col">Owner Name</th> */}
       <th scope="col">Restaurant</th>
       <th scope="col">Message</th>
       <th scope="col">Date Created</th>
@@ -117,7 +117,7 @@ export class index extends Component {
       {this.state.visits.map((item,idx) => (
           <tr>
           <th scope="row">{idx+1}</th>
-          <td>{item.name}</td>
+          {/* <td>{item.name}</td> */}
           <td>{item.restaurant}</td>
           <td>{item.message}</td>
           <td>{item.date}</td>
@@ -162,25 +162,25 @@ export class index extends Component {
                             <div className="col-lg-6 col-md-12">
                                 <form id="contactForm" onSubmit={this.addVisit}>
                                     <div className="row">
-                                        <div className="col-lg-12 col-md-12">
+                                        {/* <div className="col-lg-12 col-md-12">
                                             <div className="form-group">
                                                 <input name="name" value={this.state.name} onChange={this.handleChange} type="text" className="form-control" required={true} data-error="Please enter your name" placeholder="Name" />
                                                 <div className="help-block with-errors"></div>
                                             </div>
-                                        </div>
+                                        </div> */}
 
-                                        <div className="col-lg-12 col-md-12">
+                                        {/* <div className="col-lg-12 col-md-12">
                                             <div className="form-group">
                                                 <input type="email" name="email" value={this.state.email} onChange={this.handleChange} className="form-control" required={true} data-error="Please enter your email" placeholder="Email" />
                                                 <div className="help-block with-errors"></div>
                                             </div>
-                                        </div>
+                                        </div> */}
 
-                                        <div className="col-lg-12 col-md-6">
+                                        {/* <div className="col-lg-12 col-md-6">
                                             <div className="form-group">
                                                 <input name="phone" value={this.state.phone} onChange={this.handleChange} type="text" className="form-control" placeholder="Phone" />
                                             </div>
-                                        </div>
+                                        </div> */}
 
                                         <div className="col-lg-12 col-md-6">
                                             <div className="form-group">
@@ -214,7 +214,7 @@ export class index extends Component {
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Owner Name</th>
+      {/* <th scope="col">Owner Name</th> */}
       <th scope="col">Restaurant</th>
       <th scope="col">Message</th>
       <th scope="col">Date Created</th>
@@ -226,7 +226,7 @@ export class index extends Component {
       return(
           <tr>
           <th scope="row">{idx+1}</th>
-          <td>{item.name}</td>
+          {/* <td>{item.name}</td> */}
           <td>{item.restaurant}</td>
           <td>{item.message}</td>
           <td>{item.date}</td>
