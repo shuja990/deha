@@ -1177,7 +1177,9 @@ Main Banner CSS
             position: absolute;
             left: 0;
             top: 0;
-            background: $white-color;
+            // background: $white-color;
+    background-color: transparent;
+
             width: 100%;
             height: 100%;
             opacity: .88;
@@ -1189,7 +1191,7 @@ Main Banner CSS
             content: '';
             width: 100%;
             height: 100%;
-            background-image: url(../../images/dot.png);
+            // background-image: url(../../images/dot.png);
             left: 0;
             top: 0;
         }
@@ -3262,7 +3264,7 @@ Page Title CSS
         position: absolute;
         left: 0;
         top: 0;
-        background: $white-color;
+        // background: $white-color;
         width: 100%;
         height: 100%;
         opacity: .85;
@@ -3274,7 +3276,7 @@ Page Title CSS
         content: '';
         width: 100%;
         height: 100%;
-        background-image: url(../../images/dot.png);
+        // background-image: url(../../images/dot.png);
         left: 0;
         top: 0;
     }

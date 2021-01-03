@@ -990,6 +990,7 @@
   }
   .startup-agency-home .main-banner .hero-content h1 {
     font-size: 25px;
+    background-color: transparent;
   }
   .digital-agency-banner::before {
     content: '';

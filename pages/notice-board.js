@@ -49,7 +49,7 @@ export class index extends Component {
             date: new Date().toDateString()
         })
         .then(function(docRef) {
-          const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
+          const alertId = StatusAlertService.showSuccess('Thank you for messaging Caribbean American Restaurant Association.');
           fetch("https://us-central1-deha-d254a.cloudfunctions.net/api/action",{
             method:'post',
 						headers: {'Content-Type': 'application/json'},

@@ -49,12 +49,9 @@ export class index extends Component {
               })
               .then(respone=>respone.json())
               .then(res =>{
+            const alertId = StatusAlertService.showSuccess("Thank you for registering with Caribbean American Restaurant Association. Please check your email for confirmation.");
               console.log('complete')
-              })
-              .catch(function(error) {
-                 alert("Error")
-               });
-            Router.push('/')
+              Router.push('/')
             this.setState({
                 displayName: '',
                 email: '',
@@ -63,6 +60,11 @@ export class index extends Component {
                 cell: '',
                 restaurant: '',
             })
+              })
+              .catch(function(error) {
+                 alert("Error")
+               });
+            
         } catch (error) {
             const alertId = StatusAlertService.showError("Could not Signup. Please try again later");
             console.error(error)

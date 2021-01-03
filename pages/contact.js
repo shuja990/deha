@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-
+import StatusAlert, { StatusAlertService } from 'react-status-alert';
+import 'react-status-alert/dist/status-alert.css';
 export class index extends Component {
     state = {
         name:"",
@@ -32,6 +33,7 @@ export class index extends Component {
           })
           .then(respone=>respone.json())
           .then(res =>{
+          const alertId = StatusAlertService.showSuccess('Thank you for messaging Caribbean American Restaurant Association.');
           console.log('complete')
           })
           .catch(function(error) {
@@ -152,7 +154,7 @@ export class index extends Component {
                         </div>
                     </div>
                 </section>
-
+                <StatusAlert/>
                 <Footer />
             </React.Fragment>
         );
