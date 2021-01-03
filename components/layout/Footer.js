@@ -44,7 +44,7 @@ export class Footer extends Component {
                             <div className="single-footer-widget">
                                 <h3>Get in Touch</h3>
 
-                                <p>Caribbean American Restaurant Association Inc Copyright @2020. All rights reserved.</p>
+                                <p>Caribbean American Restaurant Association Inc Copyright @2021. All rights reserved.</p>
 
                                 <ul className="footer-contact-info">
                                     <li>
