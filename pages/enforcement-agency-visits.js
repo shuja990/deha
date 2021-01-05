@@ -53,9 +53,10 @@ export class index extends Component {
   }
     addVisit = () => {
         const that = this;
+        let d = new Date(this.state.date).toDateString
         firestore.collection("agency").add({
             agency:that.state.agency,  
-            date: that.state.date,
+            date: d,
             email : auth.currentUser.email,
             restaurant: that.state.restaurant,
             datee: new Date().toDateString()

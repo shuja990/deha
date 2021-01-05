@@ -73,7 +73,7 @@ export class Navbar extends Component {
                         <nav className="navbar navbar-expand-md navbar-light">
                             <Link href="/">
                                 <a className="navbar-brand">
-                                    <img src={require("../../images/logo.png")} alt="logo" />
+                                    <img width="300px" src={require("../../images/logo.png")} alt="logo" />
                                 </a>
                             </Link>
 
@@ -231,6 +231,11 @@ export class Navbar extends Component {
                                             </li>
                                         </ul>
                                     </li> */}
+                                    <li className="nav-item">
+                                                <Link activeClassName="active" href="/faq">
+                                                    <a className="nav-link">Faq</a>
+                                                </Link>
+                                            </li>
                                     {auth.currentUser!==null ?
                                     <li className="nav-item">
                                         <Link href="/My Account">
@@ -267,7 +272,7 @@ export class Navbar extends Component {
                                             </li>
                                             <li className="nav-item">
                                                 <Link activeClassName="active" href="/staff-customer-service-development">
-                                                    <a className="nav-link">Staff Customer Service development</a>
+                                                    <a className="nav-link">Staff Customer Service Development</a>
                                                 </Link>
                                             </li>
                                             <li className="nav-item">
@@ -277,7 +282,7 @@ export class Navbar extends Component {
                                             </li>
                                             <li className="nav-item">
                                                 <Link activeClassName="active" href="/discounts-and-offerings">
-                                                    <a className="nav-link">Discounts and offerings</a>
+                                                    <a className="nav-link">Discounts and Offerings</a>
                                                 </Link>
                                             </li>
                                             <li className="nav-item">

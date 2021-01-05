@@ -11,7 +11,8 @@ export class index extends Component {
         name: '',
         title: '',
         email: '',
-        phone: ''
+        phone: '',
+        link:''
     }
     handleChange = event => {
         const {name,value} = event.target;
@@ -37,11 +38,38 @@ export class index extends Component {
         const that = this;
         firestore.collection("resources").add({
             title: that.state.name,
-            link: that.state.email,
+            link: that.state.link,
         })
         .then(function(docRef) {
+          let c = [];
+          firestore.collection("user")
+      .get()
+      .then(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+              let d = doc.data()
+              c.push(d.email)
+          });
+          fetch("https://us-central1-deha-d254a.cloudfunctions.net/api/resources",{
+            method:'post',
+						headers: {'Content-Type': 'application/json'},
+						body: JSON.stringify({
+              email: c
+						})
+          })
+          .then(respone=>respone.json())
+          .then(res =>{
+          console.log('complete')
+          })
+          .catch(function(error) {
+             alert("Error")
+           });
+          
+      })
+      .catch(function(error) {
+          console.log("Error getting documents: ", error);
+      });
     			const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
-
+          
             console.log("Document written with ID: ", docRef.id);
         })
         .catch(function(error) {
@@ -111,7 +139,7 @@ export class index extends Component {
           </div>
           <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label">Link</label>
-            <input type="text" value={this.state.title} onChange={this.handleChange} name='title' className="form-control" id="recipient-name"/>
+            <input type="text" value={this.state.link} onChange={this.handleChange} name='link' className="form-control" id="recipient-name"/>
           </div>
           </form>
       </div>

@@ -34,7 +34,7 @@ export class Footer extends Component {
                                     <li><Link activeClassName="active" href="/about"><a className="">About</a></Link></li>
                                     <li><Link activeClassName="active" href="/services"><a className="">Services</a></Link></li>
                                     <li><Link activeClassName="active" href="/contact"><a className="">Contact</a></Link></li>
-                                    <li><Link activeClassName="active" href="/blog"><a className="">Blog</a></Link></li>
+                                    {/* <li><Link activeClassName="active" href="/blog"><a className="">Blog</a></Link></li> */}
                                     <li><Link activeClassName="active" href="/signup"><a className="">Join</a></Link></li>
                                     <li><Link activeClassName="active" href="/login"><a className="">Log In</a></Link></li>
                                 </ul>

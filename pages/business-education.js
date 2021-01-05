@@ -11,7 +11,8 @@ export class index extends Component {
         name: '',
         title: '',
         email: '',
-        phone: ''
+        phone: '',
+        link:''
     }
     handleChange = event => {
         const {name,value} = event.target;
@@ -37,7 +38,7 @@ export class index extends Component {
         const that = this;
         firestore.collection("business").add({
             title: that.state.name,
-            link: that.state.email,
+            link: that.state.link,
         })
         .then(function(docRef) {
     			const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
@@ -107,7 +108,7 @@ export class index extends Component {
         <form>
           <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label">Title</label>
-            <input type="text" value={this.state.name} onChange={this.handleChange} name='name' className="form-control" id="recipient-name"/>
+            <input type="text" value={this.state.link} onChange={this.handleChange} name='link' className="form-control" id="recipient-name"/>
           </div>
           <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label">Link</label>

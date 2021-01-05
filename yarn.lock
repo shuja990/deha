@@ -7089,6 +7089,11 @@ react-dom@^16.13.1:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
+react-faq-component@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-faq-component/-/react-faq-component-1.2.2.tgz#92ab0c8e86cf34847eb3159433025f1b6365d22a"
+  integrity sha512-To0PgQW2LUWCOvvsaa7L24KhSk3zol5xcHkv/Bm+yZieNs3j3V0z4EulKEhA11vbMVb8Tbj3h/jJg3GQ+dCbXg==
+
 react-image-lightbox@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/react-image-lightbox/-/react-image-lightbox-5.1.1.tgz#872d1a4336b5a6410ea7909b767cf59014081004"

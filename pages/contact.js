@@ -33,7 +33,7 @@ export class index extends Component {
           })
           .then(respone=>respone.json())
           .then(res =>{
-          const alertId = StatusAlertService.showSuccess('Thank you for messaging Caribbean American Restaurant Association.');
+          const alertId = StatusAlertService.showSuccess('Thank you for messaging Caribbean American Restaurant Association. We will get back to you as soon as possible.”');
           console.log('complete')
           })
           .catch(function(error) {
@@ -126,7 +126,7 @@ export class index extends Component {
 
                                         <div className="col-lg-12 col-md-6">
                                             <div className="form-group">
-                                                <input type="text" className="form-control" name="phone" value={this.state.phone} onChange={this.handleChange} placeholder="Phone" />
+                                                <input type="number" className="form-control" name="phone" value={this.state.phone} onChange={this.handleChange} placeholder="Phone" />
                                             </div>
                                         </div>
 

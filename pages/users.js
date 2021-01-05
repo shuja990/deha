@@ -203,7 +203,7 @@ export class index extends Component {
           </div>
           <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label" >Phone No</label>
-            <input type="text" value={this.state.cell} required onChange={this.handleChange} name='cell' className="form-control" id="recipient-name"/>
+            <input type="number" value={this.state.cell} required onChange={this.handleChange} name='cell' className="form-control" id="recipient-name"/>
           </div>
           <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label" >Email</label>

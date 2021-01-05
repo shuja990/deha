@@ -12,6 +12,38 @@ import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 
 export class index extends Component {
+    state = {
+        data : [
+            {
+                title: "Are all the services on CARA free?",
+                content: "Yes, all services on CARA are free."
+              },
+              {
+                title: "Do I need a liquor license to become a member?",
+                content: "No, you don't need a liquor license to a member."
+              },
+              {
+                title: "Do I need to have employees to be a member?",
+                content: "No, you don't need employees to be a member."
+              },
+              {
+                title: "How do I sign up more than one location?",
+                content: "Sign up each restaurant location individually"
+              },
+              {
+                  title:'Is it ok for a member to have a private phone conversation?',
+                  content:'Yes, you can call our number listed under contact'
+              },
+              {
+                  title:'Is my password information secure?',
+                  content:'Yes, your password is secure. If you forget your password there is an option to rest it.'
+              },
+              {
+                  title:'Will my information be sold or given to other entity?',
+                  content:'No, we will not sell or give away your information.'
+              }
+        ]
+    }
     render() {
         return (
             <React.Fragment>
@@ -34,80 +66,25 @@ export class index extends Component {
 			        <div className="container">
 				        <div className="faq-accordion">
                         <Accordion>
-                            <AccordionItem>
+                            {
+                                this.state.data.map(item=>(
+                                    <AccordionItem>
                                 <AccordionItemHeading>
                                     <AccordionItemButton>
-                                        How do permissions work in Google Play Instant?
+                                        {item.title}
                                     </AccordionItemButton>
                                 </AccordionItemHeading>
                                 <AccordionItemPanel>
-                                    <p className="accordion-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna aliqua.</p>
+                                    <p className="accordion-content">{item.content}.</p>
                                 </AccordionItemPanel>
                             </AccordionItem>
-                            <AccordionItem>
-                                <AccordionItemHeading>
-                                    <AccordionItemButton>
-                                        Is Smart Lock required for instant apps?
-                                    </AccordionItemButton>
-                                </AccordionItemHeading>
-                                <AccordionItemPanel>
-                                    <p className="accordion-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna aliqua.</p>
-                                </AccordionItemPanel>
-                            </AccordionItem>
-                            <AccordionItem>
-                                <AccordionItemHeading>
-                                    <AccordionItemButton>
-                                    Can I have multiple activities in a single feature?
-                                    </AccordionItemButton>
-                                </AccordionItemHeading>
-                                <AccordionItemPanel>
-                                    <p className="accordion-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna aliqua.</p>
-                                </AccordionItemPanel>
-                            </AccordionItem>
-                            <AccordionItem>
-                                <AccordionItemHeading>
-                                    <AccordionItemButton>
-                                    Can I share resources between features?
-                                    </AccordionItemButton>
-                                </AccordionItemHeading>
-                                <AccordionItemPanel>
-                                    <p className="accordion-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna aliqua.</p>
-                                </AccordionItemPanel>
-                            </AccordionItem>
-                            <AccordionItem>
-                                <AccordionItemHeading>
-                                    <AccordionItemButton>
-                                    Is multidex supported for instant apps?
-                                    </AccordionItemButton>
-                                </AccordionItemHeading>
-                                <AccordionItemPanel>
-                                    <p className="accordion-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna aliqua.</p>
-                                </AccordionItemPanel>
-                            </AccordionItem>
-                            <AccordionItem>
-                                <AccordionItemHeading>
-                                    <AccordionItemButton>
-                                    Can I share resources between features?
-                                    </AccordionItemButton>
-                                </AccordionItemHeading>
-                                <AccordionItemPanel>
-                                    <p className="accordion-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna aliqua.</p>
-                                </AccordionItemPanel>
-                            </AccordionItem>
-                            <AccordionItem>
-                                <AccordionItemHeading>
-                                    <AccordionItemButton>
-                                        Is Smart Lock required for instant apps?
-                                    </AccordionItemButton>
-                                </AccordionItemHeading>
-                                <AccordionItemPanel>
-                                    <p className="accordion-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. incididunt ut labore et dolore magna aliqua.</p>
-                                </AccordionItemPanel>
-                            </AccordionItem>
+                           
+                                ))
+                            }
                         </Accordion>
                         </div>
 
-                        <div className="faq-contact">
+                        {/* <div className="faq-contact">
                             <h3>Ask Your Question</h3>
                             <form>
                                 <div className="row">
@@ -140,7 +117,7 @@ export class index extends Component {
                                     </div>
                                 </div>
                             </form>
-                        </div>
+                        </div> */}
                     </div>
                 </section>
 
