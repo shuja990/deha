@@ -51,8 +51,7 @@ export class index extends Component {
               .then(res =>{
             const alertId = StatusAlertService.showSuccess("Thank you for registering with Caribbean American Restaurant Association. Please check your email for confirmation.");
               console.log('complete')
-              await delay(5000);
-              Router.push('/notice-board')
+              
             this.setState({
                 displayName: '',
                 email: '',
@@ -61,6 +60,7 @@ export class index extends Component {
                 cell: '',
                 restaurant: '',
             })
+            setTimeout(() => { Router.push('/notice-board')  }, 5000);
               })
               .catch(function(error) {
                  alert("Error")

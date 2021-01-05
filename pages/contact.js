@@ -108,7 +108,7 @@ export class index extends Component {
                             </div>
 
                             <div className="col-lg-6 col-md-12">
-                                <form id="contactForm">
+                                <form id="contactForm" onSubmit={this.handleSubmit}>
                                     <div className="row">
                                         <div className="col-lg-12 col-md-12">
                                             <div className="form-group">
@@ -132,7 +132,7 @@ export class index extends Component {
 
                                         <div className="col-lg-12 col-md-6">
                                             <div className="form-group">
-                                                <input type="text" className="form-control" name="restaurant" value={this.state.restuarant} onChange={this.handleChange} placeholder="Restaurant" />
+                                                <input type="text" className="form-control" name="restuarant" value={this.state.restuarant} onChange={this.handleChange} placeholder="Restaurant" />
                                             </div>
                                         </div>
 
