@@ -129,26 +129,45 @@ export class index extends Component {
     }
     render() {
         if(auth.currentUser!==null){
-            if(auth.currentUser.email==="info@linkcaranow.org"){
+            // if(auth.currentUser.email==="info@linkcaranow.org"){
         return (
             <React.Fragment>
                 <Navbar />
                 <div className="page-title-area item-bg1">
                     <div className="container">
-                        <h1>Users</h1>
+                        {
+                            auth.currentUser.email==="info@linkcaranow.org" ?
+                            <h1>Users</h1>
+
+
+                            :
+                            <h1>Profile</h1>
+
+                            }
                         <ul>
                             <li>
                                 <Link href="/">
                                     <a>Home</a>
                                 </Link>
                             </li>
+                            {
+                            auth.currentUser.email==="info@linkcaranow.org" ?
                             <li>Users</li>
+
+                            :
+                            <li>Profile</li>
+
+                            }
                         </ul>
                     </div>
                 </div>              
                 <section className="contact-area ptb-120">
                     <div className="container">
+                      {
+                        auth.currentUser.email==="info@linkcaranow.org" ?
 <button type="button" className="btn btn-primary" data-toggle="modal" onClick={this.permitEmail} data-target="#exampleModal">Send Permit Reminder</button>
+: <div/>
+                      }
 
                     <table className="table">
   <thead>
@@ -178,11 +197,17 @@ export class index extends Component {
 </table>
                     </div>
                 </section>
-<div className="modal" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div className="modal" style={{overflow:"scroll"}} id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div className="modal-dialog" role="document">
     <div className="modal-content">
       <div className="modal-header">
+        {
+          auth.currentUser.email==="info@linkcaranow.org" ?
         <h5 className="modal-title" id="exampleModalLabel">Update User</h5>
+            :
+        <h5 className="modal-title" id="exampleModalLabel">Profile</h5>
+
+        }
         <button type="button" onClick={()=>{ document.getElementById("exampleModal").style.display = "none"}} className="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -222,10 +247,10 @@ export class index extends Component {
                 <Footer />
             </React.Fragment>
         );
-    }
-    else{
-        return <div/>
-    }
+    // }
+    // else{
+    //     return <div/>
+    // }
 }
 else{
     return <div/>

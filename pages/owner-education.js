@@ -58,14 +58,14 @@ export class index extends Component {
                 <Navbar />
                 <div className="page-title-area item-bg1">
                     <div className="container">
-                        <h1>Business Education</h1>
+                        <h1>Owner Education</h1>
                         <ul>
                             <li>
                                 <Link href="/">
                                     <a>Home</a>
                                 </Link>
                             </li>
-                            <li>Business Education</li>
+                            <li>Owner Education</li>
                         </ul>
                     </div>
                 </div>              

@@ -69,6 +69,8 @@ export class Navbar extends Component {
         return (
             <header id="header">
                 <div id="navbar" className={`artflex-nav ${layOutCls}`}>
+                <h3 style={{color:"red",textAlign:"center"}}><a style={{color:"red",textAlign:"center"}} target="_blank" rel="nooppener norefferer" href="https://www1.nyc.gov/site/sbs/businesses/covid19-business-outreach.page">NY COVID-19 RESOURCES AND ASSISANTANCE CLICK HERE</a></h3>
+
                     <div className="container">
                         <nav className="navbar navbar-expand-md navbar-light">
                             <Link href="/">
@@ -276,8 +278,8 @@ export class Navbar extends Component {
                                                 </Link>
                                             </li>
                                             <li className="nav-item">
-                                                <Link activeClassName="active" href="/business-education">
-                                                    <a className="nav-link">Business Education</a>
+                                                <Link activeClassName="active" href="/owner-education">
+                                                    <a className="nav-link">Owner Education</a>
                                                 </Link>
                                             </li>
                                             <li className="nav-item">
@@ -285,11 +287,20 @@ export class Navbar extends Component {
                                                     <a className="nav-link">Discounts and Offerings</a>
                                                 </Link>
                                             </li>
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/users">
-                                                    <a className="nav-link">Users</a>
-                                                </Link>
-                                            </li>
+                                            {
+                                                auth.currentUser.email==="info@linkcaranow.org"?
+                                                <li className="nav-item">
+                                                    <Link activeClassName="active" href="/users">
+                                                        <a className="nav-link">Users</a>
+                                                    </Link>
+                                                </li>
+                                                :
+                                                <li className="nav-item">
+                                                    <Link activeClassName="active" href="/users">
+                                                        <a className="nav-link">Profile</a>
+                                                    </Link>
+                                                </li>
+                                            }
                                         </ul>
                                     </li>
                                     :null

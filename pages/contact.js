@@ -88,7 +88,7 @@ export class index extends Component {
                                         <i className="icofont-phone"></i>
                                     </div>
                                     <h3>Telephone</h3>
-                                    <p><a href="#">212-641-0482</a></p>
+                                    <p><a href="#">(212) 641-0482</a></p>
                                 </div>
                             </div>
                         </div>

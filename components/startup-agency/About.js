@@ -16,7 +16,7 @@ export class About extends Component {
                             <div className="cta-about-content ptb-120">
                                 <div className="section-title">
                                     <span>About Us</span>
-                                    <h2>CARIBBEAN AMERICAN RESTAURANT ASSOCIATION, Inc. (C.A.R.A.)</h2>
+                                    <h2>CARIBBEAN AMERICAN RESTAURANT ASSOCIATION, Inc. (CARA)</h2>
                                     <h3>Our Industry. Our Culture. Your Champion.</h3>
                                 </div>
                                 <p>In October 2020 the Deh Abroad Corporation created Caribbean American Restaurants Association Inc. (CARA), to advocate for and leverage Caribbean American hospitality businesses, provide resources, and eliminate adverse actions that have historically affected them. CARA will effectively work to navigate the needs of our Caribbean hospitality business owners ensuring equality while protecting our culture. CARA is the ONLY Caribbean advocacy group focused on delivering hospitality industry benefits, services, and solutions.</p>

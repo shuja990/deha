@@ -21,7 +21,7 @@ export class index extends Component {
         const {email,password} = this.state;
         try {
             await auth.signInWithEmailAndPassword(email,password);
-            Router.push('/')
+            Router.push('/notice-board')
             this.setState({email:'',password:''})
         } catch (error) {
             const alertId = StatusAlertService.showError("Could not Login. Please try again later or check your email/password");
@@ -29,7 +29,7 @@ export class index extends Component {
     }
     componentDidMount(){
         if(auth.email){
-            Router.push('/')
+            Router.push('/notice-board')
         }
     }
     forgotPassoword = e => {

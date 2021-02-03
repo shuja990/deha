@@ -33,7 +33,7 @@ export class index extends Component {
                                         <i className="icofont-pie-chart"></i>
                                     </div>
                                     <h3>Educate</h3>
-                                    <p>Educate CARA members on ever-changing COVID-19 guidelines and restrictions.</p>
+                                    <p style={{color:"black"}}>Educate CARA members on ever-changing COVID-19 guidelines and restrictions.</p>
                                 </div>
                             </div>
 
@@ -43,7 +43,7 @@ export class index extends Component {
                                         <i className="icofont-brand-designfloat"></i>
                                     </div>
                                     <h3>Assistance</h3>
-                                    <p>Focus on assisting members with COVID-19 compliance, resource availability, and financial stimulus eligibility to ensure support once available.</p>
+                                    <p style={{color:"black"}}>Link to COVID-19 financial assistance info about loans/grants from Government and Private Corporations.</p>
                                 </div>
                             </div>
 
@@ -53,7 +53,7 @@ export class index extends Component {
                                         <i className="icofont-stock-mobile"></i>
                                     </div>
                                     <h3>Advocacy</h3>
-                                    <p>Advocate for changes for unbiased treatment towards Caribbean American businesses.</p>
+                                    <p style={{color:"black"}}>Ensure our members are not visited disproportionally by enforcements agencies.</p>
                                 </div>
                             </div>
                             </div>
@@ -73,8 +73,8 @@ export class index extends Component {
                                     <div className="icon">
                                         <i className="icofont-travelling"></i>
                                     </div>
-                                    <h3>Advocacy & Education</h3>
-                                    <p>Protect and advance the Caribbean American food service industry in NYC/NYS.</p>
+                                    <h3>ENFORCEMENT AGENCY VISITS</h3>
+                                    <p>Ability to log all agency visit information</p>
                                 </div>
                             </div>
 
@@ -83,8 +83,8 @@ export class index extends Component {
                                     <div className="icon">
                                         <i className="icofont-delivery-time"></i>
                                     </div>
-                                    <h3>Awareness</h3>
-                                    <p>Present the positive impact of the Caribbean American hospitality industry throughout NYC</p>
+                                    <h3>PERMITS AND LICENSES</h3>
+                                    <p>Ability to log permits and licenses information</p>
                                 </div>
                             </div>
                             
@@ -93,8 +93,8 @@ export class index extends Component {
                                     <div className="icon">
                                         <i className="icofont-pie-chart"></i>
                                     </div>
-                                    <h3>Expertise </h3>
-                                    <p>Serve as the preferred knowledge resource for the Caribbean American Diaspora.</p>
+                                    <h3>WORKFORCE DEVELOPMENT</h3>
+                                    <p>Free zoom training for staff and Manager-- Staff customer service development- will post schedules</p>
                                 </div>
                             </div>
                             <div className="col-lg-4 col-md-6">
@@ -102,8 +102,8 @@ export class index extends Component {
                                     <div className="icon">
                                         <i className="icofont-pie-chart"></i>
                                     </div>
-                                    <h3>Workforce and development </h3>
-                                    <p>We will train future employees, advancing the skills of current employees, and communicating the value of restaurant employment to people nationwide.</p>
+                                    <h3>OWNERS BUSINESS EDUCATION</h3>
+                                    <p>Free zoom training for owners--- business structure education, financial management, and planning---will post schedules</p>
                                 </div>
                             </div>
                             <div className="col-lg-4 col-md-6">
@@ -111,8 +111,44 @@ export class index extends Component {
                                     <div className="icon">
                                         <i className="icofont-pie-chart"></i>
                                     </div>
-                                    <h3>Research and insight</h3>
-                                    <p>We will continually conduct industry research to help our members stay ahead of the game. We work to get you in front of trends before they emerge. </p>
+                                    <h3>DISCOUNT AND OFFERINGS</h3>
+                                    <p>List of top 5 vendors, suppliers, distributors--full list in portal</p>
+                                </div>
+                            </div>
+                            <div className="col-lg-4 col-md-6">
+                                <div className="single-services-box">
+                                    <div className="icon">
+                                        <i className="icofont-pie-chart"></i>
+                                    </div>
+                                    <h3>CARA ONGOING FOCUS</h3>
+                                    <p><Link href="/login">Free Membership</Link></p>
+                                </div>
+                            </div>
+                            <div className="col-lg-4 col-md-6">
+                                <div className="single-services-box">
+                                    <div className="icon">
+                                        <i className="icofont-pie-chart"></i>
+                                    </div>
+                                    <h3>AWARENESS</h3>
+                                    <p>Created or partner on events..meetings..boards..round tables..</p>
+                                </div>
+                            </div>
+                            <div className="col-lg-4 col-md-6">
+                                <div className="single-services-box">
+                                    <div className="icon">
+                                        <i className="icofont-pie-chart"></i>
+                                    </div>
+                                    <h3>EXPERTISE</h3>
+                                    <p><Link href="/</p>">List of partners..supporters..participants in panels</Link></p>
+                                </div>
+                            </div>
+                            <div className="col-lg-4 col-md-6">
+                                <div className="single-services-box">
+                                    <div className="icon">
+                                        <i className="icofont-pie-chart"></i>
+                                    </div>
+                                    <h3>RESEARCH AND INSIGHT</h3>
+                                    <p>Info on black/Caribbean surveys..studies..research..</p>
                                 </div>
                             </div>
                         </div>

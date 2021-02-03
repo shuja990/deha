@@ -12,7 +12,8 @@ export class index extends Component {
         title: '',
         email: '',
         restaurant: '',
-        phone: ''
+        phone: '',
+        comments:''
     }
     handleChange = event => {
         const {name,value} = event.target;
@@ -43,7 +44,8 @@ export class index extends Component {
             phone: that.state.phone,
             title: that.state.title,
             restaurant: that.state.restaurant,
-            date: new Date().toDateString()
+            date: new Date().toDateString(),
+            comments:this.state.comments
         })
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
@@ -87,7 +89,8 @@ export class index extends Component {
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
       <th scope="col">Date</th>
-
+      <th scope="col">Comments</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -100,6 +103,7 @@ export class index extends Component {
           <td>{item.email}</td>
           <td>{item.phone}</td>
           <td>{item.date}</td>
+          <td>{item.comments}</td>
 
         </tr>
       ))}
@@ -137,6 +141,10 @@ export class index extends Component {
           <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label" >Restaurant</label>
             <input type="text" value={this.state.restaurant} required onChange={this.handleChange} name='restaurant' className="form-control" id="recipient-name"/>
+          </div>
+          <div className="form-group">
+            <label htmlFor="recipient-name" className="col-form-label" >Comments</label>
+            <input type="text" value={this.state.comments} required onChange={this.handleChange} name='comments' className="form-control" id="recipient-name"/>
           </div>
         </form>
       </div>
