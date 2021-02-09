@@ -27,6 +27,9 @@ module.exports = withPlugins([
             preset: 'default',
             quality: 75,
         },
+
     }],
+    {fs: 'empty',
+    net: 'empty',},
     [withCSS],[withFonts],[withSass]
 ]);

@@ -21,6 +21,7 @@ export class index extends Component {
     render() {
         return (
             <React.Fragment>
+                <h6 style={{color:"red",textAlign:"center"}}><a style={{color:"red",textAlign:"center"}} target="_blank" rel="nooppener norefferer" href="https://www1.nyc.gov/site/sbs/businesses/covid19-business-outreach.page">NY COVID-19 RESOURCES AND ASSISANTANCE CLICK HERE</a></h6>
                 <Navbar />
                 <Banner /> 
                 <About />

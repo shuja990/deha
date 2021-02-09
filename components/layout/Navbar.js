@@ -69,7 +69,6 @@ export class Navbar extends Component {
         return (
             <header id="header">
                 <div id="navbar" className={`artflex-nav ${layOutCls}`}>
-                <h3 style={{color:"red",textAlign:"center"}}><a style={{color:"red",textAlign:"center"}} target="_blank" rel="nooppener norefferer" href="https://www1.nyc.gov/site/sbs/businesses/covid19-business-outreach.page">NY COVID-19 RESOURCES AND ASSISANTANCE CLICK HERE</a></h3>
 
                     <div className="container">
                         <nav className="navbar navbar-expand-md navbar-light">

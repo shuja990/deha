@@ -100,7 +100,7 @@ export class index extends Component {
                     <div className="container">
                       {auth.currentUser!==null
                        ? <div>
-                           {auth.currentUser.email === "info@linkcaranow.org"
+                           {auth.currentUser.email === "shujaali1234@gmail.com"
                            ?
                            <button type="button" className="btn btn-primary" data-toggle="modal" onClick={this.showModal} data-target="#exampleModal">Add Entry</button>
                             : null

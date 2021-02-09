@@ -5,6 +5,8 @@ import Footer from '../components/layout/Footer';
 import {firestore,auth} from '../firebase/firebase.utils'
 import StatusAlert, { StatusAlertService } from 'react-status-alert';
 import 'react-status-alert/dist/status-alert.css';
+import firebase from 'firebase/app';
+
 export class index extends Component {
     state = {
         visits: [],
@@ -13,12 +15,59 @@ export class index extends Component {
         email: '',
         phone: '',
         link:'',
+        image:'',
+        progress: '',
+        imageUrl: ''
     }
     handleChange = event => {
         const {name,value} = event.target;
-        console.log(value);
+        // console.log(value);
         this.setState({[name]: value})
     }
+    handleImage = event => {
+      const {value,name} = event.target
+      const that = this
+      this.setState({[name]: value})
+      var fil = event.target.files[0]
+      var storageRef = firebase.storage().ref();
+      var uploadTask = storageRef.child('images/' + fil.name).put(fil);
+
+      // Listen for state changes, errors, and completion of the upload.
+      uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+      function(snapshot) {
+          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+          var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          switch (snapshot.state) {
+          case firebase.storage.TaskState.PAUSED: // or 'paused'
+              alert('Upload Paused')
+              break;
+          case firebase.storage.TaskState.RUNNING: // or 'running'
+              // alert(`File is Uploading ${progress}%`);
+              that.setState({progress:progress})
+              break;
+          }
+      }, function(error) {
+      switch (error.code) {
+          case 'storage/unauthorized':
+          alert('Upload Failed')
+          break;
+          case 'storage/canceled':
+              alert('Upload Failed')
+          break;
+          case 'storage/unknown':
+              alert('Upload Failed')
+          break;
+      }
+      }, function() {
+      // Upload completed successfully, now we can get the download URL
+      uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+          that.setState({imageUrl:downloadURL},()=>{
+    			const alertId = StatusAlertService.showSuccess('Image Uploaded Successfully');
+          })
+      });
+      });
+  }
+  
     componentDidMount(){
         const that = this;
         let c = [];
@@ -39,6 +88,7 @@ export class index extends Component {
         firestore.collection("discount").add({
             title: that.state.name,
             link: that.state.link,
+            image: that.state.imageUrl
         })
         .then(function(docRef) {
     			const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
@@ -68,10 +118,10 @@ export class index extends Component {
                             <li>Discounts and Offerings</li>
                         </ul>
                     </div>
-                </div>              
-                <section className="contact-area ptb-120">
+                </div>    
+                <section className="blog-area ptb-120">
                     <div className="container">
-                      {auth.currentUser!==null
+                    {auth.currentUser!==null
                        ? <div>
                            {auth.currentUser.email === "info@linkcaranow.org"
                            ?
@@ -81,21 +131,45 @@ export class index extends Component {
                        </div>
                           : <div></div>
                       }
-                      <h1>Discounts and Offerings</h1>
-                     <div class="list-group">
-                       {
+                        <div className="row">
+                            <div className="col-lg-4 col-md-6">
+                            {
                          this.state.visits.length>0 ?
-                         this.state.visits.map(item=>(
-                           <a href={item.link} class="list-group-item list-group-item-action">{item.title}</a>
-                         ))
-                        :  <a href="#" class="list-group-item list-group-item-action active">No Discounts and Offerings Found
-                    </a>
-                       }
-              
-                  </div>
+                         this.state.visits.map(item=>(              
+                                <div className="single-blog-post">
+                                    <div className="blog-image">
+                                        <a href="#"><img src={item.image ? item.image : require("../images/blog-image/1.jpg")} alt="image" /></a>
+                                    </div>
+
+                                    <div className="blog-post-content">
+                                        <h3><a href="#">{item.title}</a></h3>
+                                        <Link href={item.link}><a href="#" className="read-more-btn">Check it out<i className="icofont-double-right"></i></a></Link>
+                                    </div>
+                                </div>
+                                ))
+                                :   <a href="#" class="list-group-item list-group-item-action active">No Discounts and Offerings Found</a>
+                                   }
+                         
+                            </div>
+
+                            
+                            {/* <div className="col-lg-12 col-md-12">
+                                <div className="pagination-area">
+                                    <nav aria-label="Page navigation">
+                                        <ul className="pagination justify-content-center">
+                                            <li className="page-item"><a className="page-link" href="#"><i className="icofont-double-left"></i></a></li>
+                                            <li className="page-item active"><a className="page-link" href="#">1</a></li>
+                                            <li className="page-item"><a className="page-link" href="#">2</a></li>
+                                            <li className="page-item"><a className="page-link" href="#">3</a></li>
+                                            <li className="page-item"><a className="page-link" href="#"><i className="icofont-double-right"></i></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div> */}
+                        </div>
                     </div>
-                </section>
-<div className="modal" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                </section>          
+   <div className="modal" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div className="modal-dialog" role="document">
     <div className="modal-content">
       <div className="modal-header">
@@ -114,6 +188,11 @@ export class index extends Component {
             <label htmlFor="recipient-name" className="col-form-label">Link</label>
             <input type="text" value={this.state.link} onChange={this.handleChange} name='link' className="form-control" id="recipient-name"/>
           </div>
+          <div className="form-group">
+            <label htmlFor="recipient-name" className="col-form-label">Image</label>
+            <input type="file" value={this.state.image} onChange={this.handleImage} name='image' className="form-control" id="recipient-name"/>
+          </div>
+          <progress id="file" value={this.state.progress} max="100">{this.state.progress}</progress>
           </form>
       </div>
       <div className="modal-footer">

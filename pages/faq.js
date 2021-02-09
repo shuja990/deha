@@ -10,39 +10,52 @@ import {
 import 'react-accessible-accordion/dist/fancy-example.css';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-
+import {firestore,auth} from '../firebase/firebase.utils'
+import StatusAlert, { StatusAlertService } from 'react-status-alert';
+import 'react-status-alert/dist/status-alert.css';
 export class index extends Component {
     state = {
         data : [
-            {
-                title: "Are all the services on CARA free?",
-                content: "Yes, all services on CARA are free."
-              },
-              {
-                title: "Do I need a liquor license to become a member?",
-                content: "No, you don't need a liquor license to a member."
-              },
-              {
-                title: "Do I need to have employees to be a member?",
-                content: "No, you don't need employees to be a member."
-              },
-              {
-                title: "How do I sign up more than one location?",
-                content: "Sign up each restaurant location individually"
-              },
-              {
-                  title:'Is it ok for a member to have a private phone conversation?',
-                  content:'Yes, you can call our number listed under contact'
-              },
-              {
-                  title:'Is my password information secure?',
-                  content:'Yes, your password is secure. If you forget your password there is an option to rest it.'
-              },
-              {
-                  title:'Will my information be sold or given to other entity?',
-                  content:'No, we will not sell or give away your information.'
-              }
-        ]
+        ],
+        title: "",
+        content:""
+    }
+    componentDidMount(){
+        const that = this;
+        let c = [];
+        firestore.collection("faq")
+    .get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            c.push(doc.data())
+        });
+        that.setState({data:c})
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+    }
+    handleChange = event => {
+        const {name,value} = event.target;
+        this.setState({[name]: value})
+    }
+    addVisit = () => {
+        const that = this;
+        firestore.collection("faq").add({
+            title: that.state.title,
+            content: that.state.content,
+        })
+        .then(function(docRef) {
+    			const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
+
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function(error) {
+            console.error("Error adding document: ", error);
+        });
+    }
+    showModal = () => {
+        document.getElementById("exampleModal").style.display = "block"
     }
     render() {
         return (
@@ -64,6 +77,16 @@ export class index extends Component {
 
                 <section className="faq-area ptb-120">
 			        <div className="container">
+                    {auth.currentUser!==null
+                       ? <div>
+                           {auth.currentUser.email === "info@linkcaranow.org"
+                           ?
+                           <button type="button" className="btn btn-primary" data-toggle="modal" onClick={this.showModal} data-target="#exampleModal">Add Entry</button>
+                            : null
+                         }
+                       </div>
+                          : <div></div>
+                      }
 				        <div className="faq-accordion">
                         <Accordion>
                             {
@@ -120,7 +143,35 @@ export class index extends Component {
                         </div> */}
                     </div>
                 </section>
-
+                <div className="modal" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog" role="document">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h5 className="modal-title" id="exampleModalLabel">Add New FAQ</h5>
+        <button type="button" onClick={()=>{ document.getElementById("exampleModal").style.display = "none"}} className="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="modal-body">
+        <form>
+          <div className="form-group">
+            <label htmlFor="recipient-name" className="col-form-label">Title</label>
+            <input type="text" value={this.state.title} onChange={this.handleChange} name='title' className="form-control" id="recipient-name"/>
+          </div>
+          <div className="form-group">
+            <label htmlFor="recipient-name" className="col-form-label">Content</label>
+            <input type="text" value={this.state.content} onChange={this.handleChange} name='content' className="form-control" id="recipient-name"/>
+          </div>
+          </form>
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" onClick={()=>{ document.getElementById("exampleModal").style.display = "none"}} data-dismiss="modal">Close</button>
+        <button type="button" className="btn btn-primary" onClick={()=>{this.addVisit(); document.getElementById("exampleModal").style.display = "none"}}>Add Entry</button>
+      </div>
+    </div>
+  </div>
+</div>
+<StatusAlert/>
                 <Footer />
             </React.Fragment>
         );

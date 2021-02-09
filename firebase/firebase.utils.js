@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
-
+import 'firebase/storage';
 const config = {
     apiKey: "AIzaSyB690UiW9Oc1nxWAdIfFgyJl7m8jifXuBs",
     authDomain: "deha-d254a.firebaseapp.com",
@@ -30,7 +30,8 @@ export const createUserProfileDocument = async (userAuth,additionalData) => {
     return userRef;
      
 }
-firebase.initializeApp(config);
+!firebase.apps.length ? firebase.initializeApp(config) : firebase.app();
+
 export const addCollectionAndDocuments = async (collectionKey,objectsToAdd) => {
     const collectionRef = firestore.collection(collectionKey);
     const batch = firestore.batch();
