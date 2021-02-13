@@ -132,10 +132,11 @@ export class index extends Component {
                           : <div></div>
                       }
                         <div className="row">
-                            <div className="col-lg-4 col-md-6">
-                            {
+                        {
                          this.state.visits.length>0 ?
-                         this.state.visits.map(item=>(              
+                         this.state.visits.map(item=>(   
+                            <div className="col-lg-4 col-md-6">
+           
                                 <div className="single-blog-post">
                                     <div className="blog-image">
                                         <a href="#"><img src={item.image ? item.image : require("../images/blog-image/1.jpg")} alt="image" /></a>
@@ -146,12 +147,12 @@ export class index extends Component {
                                         <Link href={item.link}><a href="#" className="read-more-btn">Check it out<i className="icofont-double-right"></i></a></Link>
                                     </div>
                                 </div>
-                                ))
-                                :   <a href="#" class="list-group-item list-group-item-action active">No Discounts and Offerings Found</a>
-                                   }
+                           
                          
                             </div>
-
+     ))
+     :   <a href="#" class="list-group-item list-group-item-action active">No Discounts and Offerings Found</a>
+        }
                             
                             {/* <div className="col-lg-12 col-md-12">
                                 <div className="pagination-area">
