@@ -42,13 +42,14 @@ export class index extends Component {
         })
         .then(function(docRef) {
           let c = [];
-          firestore.collection("user")
+          firestore.collection("users")
       .get()
       .then(function(querySnapshot) {
           querySnapshot.forEach(function(doc) {
               let d = doc.data()
               c.push(d.email)
           });
+          // console.log(c);
           fetch("https://us-central1-deha-d254a.cloudfunctions.net/api/resources",{
             method:'post',
 						headers: {'Content-Type': 'application/json'},
@@ -58,10 +59,12 @@ export class index extends Component {
           })
           .then(respone=>respone.json())
           .then(res =>{
-          console.log('complete')
+          // console.log('complete')
+          console.log(res);
           })
           .catch(function(error) {
              alert("Error")
+            //  console.log(error);
            });
           
       })
@@ -100,7 +103,7 @@ export class index extends Component {
                     <div className="container">
                       {auth.currentUser!==null
                        ? <div>
-                           {auth.currentUser.email === "shujaali1234@gmail.com"
+                           {auth.currentUser.email === "info@linkcaranow.org"
                            ?
                            <button type="button" className="btn btn-primary" data-toggle="modal" onClick={this.showModal} data-target="#exampleModal">Add Entry</button>
                             : null

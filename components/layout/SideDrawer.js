@@ -85,7 +85,7 @@ export class SideDrawer extends Component {
                                         <li>
                                             <i className="icofont-phone"></i>
                                             Phone
-                                            <span><a href="#">212-641-0482</a></span>
+                                            <span><a href="#">(212) 641-0482</a></span>
                                         </li>
                                     </ul>
                                 </div>

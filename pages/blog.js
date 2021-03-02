@@ -88,11 +88,13 @@ export class index extends Component {
     }
     addVisit = () => {
         const that = this;
+        // console.log(that.state.title);
+        let d = encodeURI(that.state.name).toLowerCase()
         firestore.collection("blog").add({
             title: that.state.name,
             content: that.state.content,
             tags: that.state.tags,
-            slug: `/blog/${encodeURI(that.state.title.toLowerCase())}`,
+            slug: `/blog/${d}`,
             image: that.state.imageUrl
         })
         .then(function(docRef) {

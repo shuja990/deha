@@ -17,7 +17,8 @@ export class index extends Component {
         link:'',
         image:'',
         progress: '',
-        imageUrl: ''
+        imageUrl: '',
+        description: ''
     }
     handleChange = event => {
         const {name,value} = event.target;
@@ -88,7 +89,8 @@ export class index extends Component {
         firestore.collection("discount").add({
             title: that.state.name,
             link: that.state.link,
-            image: that.state.imageUrl
+            image: that.state.imageUrl,
+            description: that.state.description
         })
         .then(function(docRef) {
     			const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
@@ -137,13 +139,14 @@ export class index extends Component {
                          this.state.visits.map(item=>(   
                             <div className="col-lg-4 col-md-6">
            
-                                <div className="single-blog-post">
-                                    <div className="blog-image">
+                                <div className="single-blog-post" style={{boxShadow:"none"}}>
+                                    <div className="blog-image" style={{border:"1px solid black"}}>
                                         <a href="#"><img src={item.image ? item.image : require("../images/blog-image/1.jpg")} alt="image" /></a>
                                     </div>
 
                                     <div className="blog-post-content">
                                         <h3><a href="#">{item.title}</a></h3>
+                                        <p>{item.description}</p>
                                         <Link href={item.link}><a href="#" className="read-more-btn">Check it out<i className="icofont-double-right"></i></a></Link>
                                     </div>
                                 </div>
@@ -188,6 +191,10 @@ export class index extends Component {
           <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label">Link</label>
             <input type="text" value={this.state.link} onChange={this.handleChange} name='link' className="form-control" id="recipient-name"/>
+          </div>
+          <div className="form-group">
+            <label htmlFor="description" className="col-form-label">Description</label>
+            <input type="text" value={this.state.description} onChange={this.handleChange} name='description' className="form-control" id="recipient-name"/>
           </div>
           <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label">Image</label>
