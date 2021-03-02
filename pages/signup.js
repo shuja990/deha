@@ -127,7 +127,7 @@ export class index extends Component {
                                             </div>
                                             <div className="col-lg-12">
                                                 <div className="form-group">
-                                                    <input type="number" className="form-control" value={this.state.cell} name="cell" onChange={this.handleChange} placeholder="Cell Number" />
+                                                    <input type="text" className="form-control" value={this.state.cell} pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}" name="cell" onChange={this.handleChange} placeholder="Cell Number (xxx) xxx-xxxx" required />
                                                 </div>
                                             </div>
 

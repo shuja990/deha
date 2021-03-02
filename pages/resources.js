@@ -50,23 +50,23 @@ export class index extends Component {
               c.push(d.email)
           });
           // console.log(c);
-          fetch("https://us-central1-deha-d254a.cloudfunctions.net/api/resources",{
-            method:'post',
-						headers: {'Content-Type': 'application/json'},
-						body: JSON.stringify({
-              email: c,
-              link: that.state.link
-						})
-          })
-          .then(respone=>respone.json())
-          .then(res =>{
-          // console.log('complete')
-          console.log(res);
-          })
-          .catch(function(error) {
-             alert("Error")
-            //  console.log(error);
-           });
+          // fetch("https://us-central1-deha-d254a.cloudfunctions.net/api/resources",{
+          //   method:'post',
+					// 	headers: {'Content-Type': 'application/json'},
+					// 	body: JSON.stringify({
+          //     email: c,
+          //     link: that.state.link
+					// 	})
+          // })
+          // .then(respone=>respone.json())
+          // .then(res =>{
+          // // console.log('complete')
+          // console.log(res);
+          // })
+          // .catch(function(error) {
+          //    alert("Error")
+          //   //  console.log(error);
+          //  });
           
       })
       .catch(function(error) {
