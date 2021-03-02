@@ -54,7 +54,8 @@ export class index extends Component {
             method:'post',
 						headers: {'Content-Type': 'application/json'},
 						body: JSON.stringify({
-              email: c
+              email: c,
+              link: that.state.link
 						})
           })
           .then(respone=>respone.json())
