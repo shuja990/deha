@@ -57,6 +57,7 @@ export class Navbar extends Component {
     render() {
 
         let { pathname } = this.props.router;
+        console.log(pathname);
         let { products } = this.props;
         const { collapsed } = this.state;
         const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
@@ -69,8 +70,12 @@ export class Navbar extends Component {
         return (
             <header id="header">
                 <div id="navbar" className={`artflex-nav ${layOutCls}`}>
-
                     <div className="container">
+                    {
+                    pathname === "/" ?
+                <h6 style={{color:"red",textAlign:"center",zIndex:"5"}}><a style={{zIndex:"6",color:"red",textAlign:"center"}} target="_blank" rel="nooppener norefferer" href="https://www1.nyc.gov/site/sbs/businesses/covid19-business-outreach.page">NY COVID-19 RESOURCES AND ASSISANTANCE CLICK HERE</a></h6>
+                    : null
+                }
                         <nav className="navbar navbar-expand-md navbar-light">
                             <Link href="/">
                                 <a className="navbar-brand">

@@ -30,7 +30,7 @@ export class index extends Component {
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
-                                        <i className="icofont-pie-chart"></i>
+                                        <i className="icofont-education"></i>
                                     </div>
                                     <h3>Educate</h3>
                                     <p style={{color:"black"}}>Educate CARA members on ever-changing COVID-19 guidelines and restrictions.</p>

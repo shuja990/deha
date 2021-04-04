@@ -6,6 +6,7 @@ import {auth,createUserProfileDocument} from '../firebase/firebase.utils'
 import Router from 'next/router'
 import StatusAlert, { StatusAlertService } from 'react-status-alert';
 import 'react-status-alert/dist/status-alert.css';
+import PhoneInput from 'react-phone-number-input/input'
 
 export class index extends Component {
     state={
@@ -71,6 +72,9 @@ export class index extends Component {
             console.error(error)
         }
     }
+    handleCell = (value) => {
+        this.setState({cell: value})
+    }
     render() {
         return (
             <React.Fragment>
@@ -127,7 +131,16 @@ export class index extends Component {
                                             </div>
                                             <div className="col-lg-12">
                                                 <div className="form-group">
-                                                    <input type="text" className="form-control" value={this.state.cell} pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}" name="cell" onChange={this.handleChange} placeholder="Cell Number (xxx) xxx-xxxx" required />
+                                                <PhoneInput
+                                                placeholder="Enter phone number"
+                                                value={this.state.cell}
+                                                name="cell"
+                                                country="US"
+                                                className="form-control"
+                                                pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"
+                                                max="10"
+                                                onChange={this.handleCell}/>
+                                                    {/* <input type="text"  value={this.state.cell} pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}" name="cell" onChange={this.handleChange} placeholder="Cell Number (xxx) xxx-xxxx" required /> */}
                                                 </div>
                                             </div>
 
