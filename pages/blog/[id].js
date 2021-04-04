@@ -71,7 +71,7 @@ export class index extends Component {
                                             }
                                         </ul>
                                         <h3>{this.state.post.title}</h3>
-                                        <pre>{this.state.post.content}</pre>
+                                        <p>{this.state.post.content}</p>
                                     </div>
                                 </div>
                                </div>

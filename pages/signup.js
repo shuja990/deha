@@ -137,8 +137,8 @@ export class index extends Component {
                                                 name="cell"
                                                 country="US"
                                                 className="form-control"
-                                                pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"
-                                                max="10"
+                                                // pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"
+                                                // max="10"
                                                 onChange={this.handleCell}/>
                                                     {/* <input type="text"  value={this.state.cell} pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}" name="cell" onChange={this.handleChange} placeholder="Cell Number (xxx) xxx-xxxx" required /> */}
                                                 </div>

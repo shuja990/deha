@@ -40,7 +40,7 @@ export class index extends Component {
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
-                                        <i className="icofont-brand-designfloat"></i>
+                                        <i className="icofont-learn"></i>
                                     </div>
                                     <h3>Assistance</h3>
                                     <p style={{color:"black"}}>Link to COVID-19 financial assistance info about loans/grants from Government and Private Corporations.</p>
@@ -50,7 +50,7 @@ export class index extends Component {
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
-                                        <i className="icofont-stock-mobile"></i>
+                                        <i className="icofont-bullhorn"></i>
                                     </div>
                                     <h3>Advocacy</h3>
                                     <p style={{color:"black"}}>Ensure our members are not visited disproportionally by enforcements agencies.</p>
@@ -62,7 +62,7 @@ export class index extends Component {
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
-                                        <i className="icofont-live-support"></i>
+                                        <i className="icofont-group"></i>
                                     </div>
                                     <h3>FREE MEMBERSHIP</h3>
                                     <p><Link href="/signup"><a className="">Sign up on website</a></Link></p>
@@ -71,7 +71,7 @@ export class index extends Component {
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
-                                        <i className="icofont-travelling"></i>
+                                        <i className="icofont-police-cap"></i>
                                     </div>
                                     <h3>ENFORCEMENT AGENCY VISITS</h3>
                                     <p>Ability to log all agency visit information</p>
@@ -81,7 +81,7 @@ export class index extends Component {
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
-                                        <i className="icofont-delivery-time"></i>
+                                        <i className="icofont-license"></i>
                                     </div>
                                     <h3>PERMITS AND LICENSES</h3>
                                     <p>Ability to log permits and licenses information</p>
@@ -91,7 +91,7 @@ export class index extends Component {
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
-                                        <i className="icofont-pie-chart"></i>
+                                        <i className="icofont-restaurant-menu"></i>
                                     </div>
                                     <h3>WORKFORCE DEVELOPMENT</h3>
                                     <p>Free zoom training for staff and Manager-- Staff customer service development- will post schedules</p>
@@ -100,7 +100,7 @@ export class index extends Component {
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
-                                        <i className="icofont-pie-chart"></i>
+                                        <i className="icofont-briefcase"></i>
                                     </div>
                                     <h3>OWNERS BUSINESS EDUCATION</h3>
                                     <p>Free zoom training for owners--- business structure education, financial management, and planning---will post schedules</p>
@@ -109,7 +109,7 @@ export class index extends Component {
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
-                                        <i className="icofont-pie-chart"></i>
+                                        <i className="icofont-sale-discount"></i>
                                     </div>
                                     <h3>DISCOUNT AND OFFERINGS</h3>
                                     <p>List of top 5 vendors, suppliers, distributors--full list in portal</p>
@@ -118,7 +118,7 @@ export class index extends Component {
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
-                                        <i className="icofont-pie-chart"></i>
+                                        <i className="icofont-focus"></i>
                                     </div>
                                     <h3>CARA ONGOING FOCUS</h3>
                                     <p><Link href="/login">Free Membership</Link></p>
@@ -127,7 +127,7 @@ export class index extends Component {
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
-                                        <i className="icofont-pie-chart"></i>
+                                        <i className="icofont-comment"></i>
                                     </div>
                                     <h3>AWARENESS</h3>
                                     <p>Created or partner on events..meetings..boards..round tables..</p>
@@ -136,7 +136,7 @@ export class index extends Component {
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
-                                        <i className="icofont-pie-chart"></i>
+                                        <i className="icofont-badge"></i>
                                     </div>
                                     <h3>EXPERTISE</h3>
                                     <p><Link href="/</p>">List of partners..supporters..participants in panels</Link></p>
@@ -145,7 +145,7 @@ export class index extends Component {
                             <div className="col-lg-4 col-md-6">
                                 <div className="single-services-box">
                                     <div className="icon">
-                                        <i className="icofont-pie-chart"></i>
+                                        <i className="icofont-dashboard-web"></i>
                                     </div>
                                     <h3>RESEARCH AND INSIGHT</h3>
                                     <p>Info on black/Caribbean surveys..studies..research..</p>
