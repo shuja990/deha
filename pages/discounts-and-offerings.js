@@ -6,7 +6,7 @@ import {firestore,auth} from '../firebase/firebase.utils'
 import StatusAlert, { StatusAlertService } from 'react-status-alert';
 import 'react-status-alert/dist/status-alert.css';
 import firebase from 'firebase/app';
-
+import Select from 'react-dropdown-select'
 export class index extends Component {
     state = {
         visits: [],
@@ -18,7 +18,8 @@ export class index extends Component {
         image:'',
         progress: '',
         imageUrl: '',
-        description: ''
+        description: '',
+        options: [{label:"Shuja",value:"shuja"},{label:"Ali" ,value:"ali"}]
     }
     handleChange = event => {
         const {name,value} = event.target;
@@ -133,6 +134,16 @@ export class index extends Component {
                        </div>
                           : <div></div>
                       }
+                      <div className="form-group">
+                      <Select
+                        placeholder="Search Category"
+                        // multi
+                        // noDataRenderer={this.customNoDataRenderer}
+                        onChange={(value) => console.log(value)}
+                        values={[]}
+                        options={this.state.options}
+                        />
+                        </div>
                         <div className="row">
                         {
                          this.state.visits.length>0 ?

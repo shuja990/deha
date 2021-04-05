@@ -39,6 +39,7 @@
     "react": "^16.13.1",
     "react-accessible-accordion": "^3.0.1",
     "react-dom": "^16.13.1",
+    "react-dropdown-select": "^4.7.4",
     "react-faq-component": "^1.2.2",
     "react-image-lightbox": "^5.1.1",
     "react-masonry-component": "^6.2.1",

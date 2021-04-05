@@ -4,6 +4,8 @@ import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import StatusAlert, { StatusAlertService } from 'react-status-alert';
 import 'react-status-alert/dist/status-alert.css';
+import PhoneInput from 'react-phone-number-input/input'
+
 export class index extends Component {
     state = {
         name:"",
@@ -40,6 +42,9 @@ export class index extends Component {
              alert("Error")
            }); 
           
+    }
+    handleCell = (value) => {
+        this.setState({phone: value})
     }
     render() {
         return (
@@ -126,7 +131,16 @@ export class index extends Component {
 
                                         <div className="col-lg-12 col-md-6">
                                             <div className="form-group">
-                                                <input type="number" className="form-control" name="phone" value={this.state.phone} onChange={this.handleChange} placeholder="Phone" />
+                                            <PhoneInput
+                                                placeholder="Enter phone number"
+                                                value={this.state.phone}
+                                                name="phone"
+                                                country="US"
+                                                className="form-control"
+                                                // pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"
+                                                // max="10"
+                                                onChange={this.handleCell}/>
+                                                {/* <input type="number" className="form-control" name="phone" value={this.state.phone} onChange={this.handleChange} placeholder="Phone" /> */}
                                             </div>
                                         </div>
 

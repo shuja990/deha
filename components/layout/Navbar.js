@@ -169,9 +169,15 @@ export class Navbar extends Component {
                                            
                                         </ul>
                                     </li> */}
-                                    <li className="nav-item">
-                                                <Link activeClassName="active" href="/contact">
-                                                    <a className="nav-link">Contact</a>
+                                   
+                                            <li className="nav-item">
+                                                <Link activeClassName="active" href="/faq">
+                                                    <a className="nav-link">FAQ</a>
+                                                </Link>
+                                            </li>
+                                            <li className="nav-item">
+                                                <Link activeClassName="active" href="/blog">
+                                                    <a className="nav-link">News</a>
                                                 </Link>
                                             </li>
                                             {/* <li className="nav-item">
@@ -179,6 +185,11 @@ export class Navbar extends Component {
                                                     <a className="nav-link">Blog</a>
                                                 </Link>
                                             </li> */}
+                                             <li className="nav-item">
+                                                <Link activeClassName="active" href="/contact">
+                                                    <a className="nav-link">Contact</a>
+                                                </Link>
+                                            </li>
                                             {
                                                 auth.currentUser===null ?
                                                 <>
@@ -237,16 +248,7 @@ export class Navbar extends Component {
                                             </li>
                                         </ul>
                                     </li> */}
-                                    <li className="nav-item">
-                                                <Link activeClassName="active" href="/faq">
-                                                    <a className="nav-link">FAQ</a>
-                                                </Link>
-                                            </li>
-                                            <li className="nav-item">
-                                                <Link activeClassName="active" href="/blog">
-                                                    <a className="nav-link">News</a>
-                                                </Link>
-                                            </li>
+                                   
                                     {auth.currentUser!==null ?
                                     <li className="nav-item">
                                         <Link href="/My Account">
