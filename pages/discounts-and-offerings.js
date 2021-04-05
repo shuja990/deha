@@ -19,12 +19,19 @@ export class index extends Component {
         progress: '',
         imageUrl: '',
         description: '',
-        options: [{label:"Shuja",value:"shuja"},{label:"Ali" ,value:"ali"}]
+        category:'',
+        position: 0,
+        selectedCategory: 'Restaurant Depot',
+        options: [{label:"Restaurant Depot",value:"Restaurant Depot"},{label:"Accountant" ,value:"Accountant"},{label:"Attorney" ,value:"Attorney"}]
     }
     handleChange = event => {
         const {name,value} = event.target;
         // console.log(value);
         this.setState({[name]: value})
+    }
+    handleSelect = value =>{
+        let pos = this.state.visits.map(function(e) { return e.category; }).indexOf(value[0].value);
+        this.setState({selectedCategory:value,position:pos})
     }
     handleImage = event => {
       const {value,name} = event.target
@@ -79,7 +86,8 @@ export class index extends Component {
         querySnapshot.forEach(function(doc) {
             c.push(doc.data())
         });
-        that.setState({visits:c})
+        let pos = c.map(function(e) { return e.category; }).indexOf("Restaurant Depot");
+        that.setState({visits:c,position:pos})
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
@@ -87,20 +95,40 @@ export class index extends Component {
     }
     addVisit = () => {
         const that = this;
-        firestore.collection("discount").add({
-            title: that.state.name,
-            link: that.state.link,
-            image: that.state.imageUrl,
-            description: that.state.description
-        })
-        .then(function(docRef) {
-    			const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
-
-            console.log("Document written with ID: ", docRef.id);
-        })
-        .catch(function(error) {
-            console.error("Error adding document: ", error);
+        let docId = '';
+        let visits = 
+        firestore.collection("discount").where("category","==",that.state.category)
+    .get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            docId = doc.id;
+            let c = doc.data()
+            visits = c.discounts
+            // console.log(c);
+            visits.push({
+                title: that.state.name,
+                link: that.state.link,
+                image: that.state.imageUrl,
+                description: that.state.description
+            })
+            // console.log(visits);
+            firestore.collection("discount").doc(docId).set({
+                discounts: visits,
+                category: that.state.category
+            })
+            .then(function(docRef) {
+                    const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
+    
+                // console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
+            });
         });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
     }
     showModal = () => {
         document.getElementById("exampleModal").style.display = "block"
@@ -126,7 +154,7 @@ export class index extends Component {
                     <div className="container">
                     {auth.currentUser!==null
                        ? <div>
-                           {auth.currentUser.email === "info@linkcaranow.org"
+                           {auth.currentUser.email === "shujaali1234@gmail.com"
                            ?
                            <button type="button" className="btn btn-primary" data-toggle="modal" onClick={this.showModal} data-target="#exampleModal">Add Entry</button>
                             : null
@@ -139,15 +167,15 @@ export class index extends Component {
                         placeholder="Search Category"
                         // multi
                         // noDataRenderer={this.customNoDataRenderer}
-                        onChange={(value) => console.log(value)}
-                        values={[]}
+                        onChange={(value) => this.handleSelect(value)}
+                        values={[{label:"Restaurant Depot",value:"Restaurant Depot"}]}
                         options={this.state.options}
                         />
                         </div>
                         <div className="row">
                         {
                          this.state.visits.length>0 ?
-                         this.state.visits.map(item=>(   
+                         this.state.visits[this.state.position].discounts.map(item=>(   
                             <div className="col-lg-4 col-md-6">
            
                                 <div className="single-blog-post" style={{boxShadow:"none"}}>
@@ -211,6 +239,13 @@ export class index extends Component {
             <label htmlFor="recipient-name" className="col-form-label">Image</label>
             <input type="file" value={this.state.image} onChange={this.handleImage} name='image' className="form-control" id="recipient-name"/>
           </div>
+          <label for="sel1">Select Category:</label>
+            <select class="form-control" id="sel1" value={this.state.category} onChange={this.handleChange} name='category'>
+                <option>Restaurant Depot</option>
+                <option>Accountant</option>
+                <option>Attorney</option>
+
+            </select>
           <progress id="file" value={this.state.progress} max="100">{this.state.progress}</progress>
           </form>
       </div>
