@@ -205,12 +205,7 @@ export class Navbar extends Component {
                                             </li>
                                             </>:
                                             <>
-                                                <li className="nav-item">
-                                                {/* <Link activeClassName="active" onClick={()=>auth.signOut()}> */}
-                                                    <a className="nav-link" onClick={()=>{auth.signOut();window.location.reload(false)}}>Logout</a>
-                                                {/* </Link> */}
-      
-                                            </li>
+                       
                                             {/* {auth.currentUser==="shujaali1234@gmail.com" ? */}
 
                                             {/* : null */}
@@ -306,11 +301,19 @@ export class Navbar extends Component {
                                                     </Link>
                                                 </li>
                                                 :
+                                                <>
                                                 <li className="nav-item">
                                                     <Link activeClassName="active" href="/users">
                                                         <a className="nav-link">Profile</a>
                                                     </Link>
                                                 </li>
+                                                <li className="nav-item">
+                                                {/* <Link activeClassName="active" onClick={()=>auth.signOut()}> */}
+                                                    <a className="nav-link" onClick={()=>{auth.signOut();window.location.reload(false)}}>Logout</a>
+                                                {/* </Link> */}
+      
+                                            </li>
+                                                </>
                                             }
                                         </ul>
                                     </li>

@@ -6,6 +6,7 @@ import {firestore,auth} from '../firebase/firebase.utils'
 import StatusAlert, { StatusAlertService } from 'react-status-alert';
 import 'react-status-alert/dist/status-alert.css';
 import firebase from 'firebase/app';
+import Edit from '../components/editor';
 
 export class index extends Component {
     state = {
@@ -93,7 +94,7 @@ export class index extends Component {
         firestore.collection("blog").add({
             title: that.state.name,
             content: that.state.content,
-            tags: that.state.tags,
+            // tags: that.state.tags,
             slug: `/blog/${d}`,
             image: that.state.imageUrl
         })
@@ -108,6 +109,10 @@ export class index extends Component {
     }
     showModal = () => {
         document.getElementById("exampleModal").style.display = "block"
+    }
+    setContent = (value) =>{
+        console.log(value);
+        this.setState({content:value})
     }
     render() {
         return (
@@ -165,7 +170,7 @@ export class index extends Component {
                 
                     </div>
                 </section>          
-   <div className="modal" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div className="modal" id="exampleModal" style={{overflow:"scroll",width:"100%",height:"100%"}} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div className="modal-dialog" role="document">
     <div className="modal-content">
       <div className="modal-header">
@@ -176,11 +181,13 @@ export class index extends Component {
       </div>
       <div className="modal-body">
         <form>
+            <Edit setContent={this.setContent}/>
           <div className="form-group">
-            <label htmlFor="recipient-name" className="col-form-label">Title</label>
+            <label htmlFor="recipient-name" className="col-form-label">Thumbnail Title</label>
             <input type="text" value={this.state.name} onChange={this.handleChange} name='name' className="form-control" id="recipient-name"/>
           </div>
-          <div className="form-group">
+          
+          {/* <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label">Content</label>
             <input type="text" value={this.state.content} onChange={this.handleChange} name='content' className="form-control" id="recipient-name"/>
           </div>
@@ -188,12 +195,12 @@ export class index extends Component {
             <label htmlFor="recipient-name" className="col-form-label">Tags</label>
             <input type="text" value={this.state.tag} onChange={this.handleChange} name='tag' className="form-control" id="recipient-name"/>
             <button type="button" onClick={()=>{this.state.tags.push(this.state.tag);this.setState({tag:""})}}>Add Tag</button>
-          </div>
+          </div> */}
           <div className="form-group">
-            <label htmlFor="recipient-name" className="col-form-label">Image</label>
+            <label htmlFor="recipient-name" className="col-form-label">Thumbnail Image</label>
             <input type="file" value={this.state.image} onChange={this.handleImage} name='image' className="form-control" id="recipient-name"/>
           </div>
-          <progress id="file" value={this.state.progress} max="100">{this.state.progress}</progress>
+          <progress id="file" value={this.state.progress} max="100">{this.state.progress}</progress> 
           </form>
       </div>
       <div className="modal-footer">

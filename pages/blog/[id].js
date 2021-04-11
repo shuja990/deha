@@ -6,8 +6,10 @@ import {firestore} from '../../firebase/firebase.utils'
 export class index extends Component {
     state = {
         post: {
-            tags: []
-        }
+            tags: [],
+            content:""
+        },
+        // content:""
     }
     componentDidMount(){
         const that = this;
@@ -26,10 +28,10 @@ export class index extends Component {
     .catch(function(error) {
         console.log("Error getting documents: ", error);
     });
-
     }
     render() {
         // console.log(window.location);
+        console.log(this.state.post);
         return (
             <React.Fragment>
                 <Navbar />
@@ -52,14 +54,15 @@ export class index extends Component {
                     </div>
                 </div>
 
-                <section className="blog-details-area ptb-120">
-                    <div className="container">
+                <section className="blog-details-area ptb-120 p-3 m-3">
+                    <div dangerouslySetInnerHTML={{__html: this.state.post.content}}></div>
+                    {/* <div className="container">
                         <div className="row">
                             <div className="col-lg-12 col-md-12">
                                 <div className="blog-details">
                                     <div className="article-img">
                                         <img src={this.state.post.image ? this.state.post.image : require("../../images/blog-image/1.jpg")} alt="blog-details" />
-                                        {/* <div className="date">20 <br /> Jan</div> */}
+                                        <div className="date">20 <br /> Jan</div>
                                     </div>
                                     
                                     <div className="article-content">
@@ -77,7 +80,7 @@ export class index extends Component {
                                </div>
 
                         </div>
-                    </div>
+                    </div> */}
                 </section>
 
                 <Footer />
