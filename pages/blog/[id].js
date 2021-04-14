@@ -9,6 +9,9 @@ export class index extends Component {
             tags: [],
             content:""
         },
+        monthNames : ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ]
         // content:""
     }
     componentDidMount(){
@@ -55,32 +58,31 @@ export class index extends Component {
                 </div>
 
                 <section className="blog-details-area ptb-120 p-3 m-3">
-                    <div dangerouslySetInnerHTML={{__html: this.state.post.content}}></div>
-                    {/* <div className="container">
+                    <div className="container">
                         <div className="row">
                             <div className="col-lg-12 col-md-12">
                                 <div className="blog-details">
                                     <div className="article-img">
                                         <img src={this.state.post.image ? this.state.post.image : require("../../images/blog-image/1.jpg")} alt="blog-details" />
-                                        <div className="date">20 <br /> Jan</div>
+                                        <div className="date">{this.state.post.date} <br /> {this.state.monthNames[this.state.post.month]}</div>
                                     </div>
                                     
                                     <div className="article-content">
                                         <ul className="category">
-                                            {
+                                            {/* {
                                                 this.state.post.tags.map(item=>(
                                                     <li><a href="#">{item}</a></li>
                                                 ))
-                                            }
+                                            } */}
                                         </ul>
                                         <h3>{this.state.post.title}</h3>
-                                        <p>{this.state.post.content}</p>
+                                        <p dangerouslySetInnerHTML={{__html: this.state.post.content}}></p>
                                     </div>
                                 </div>
                                </div>
 
                         </div>
-                    </div> */}
+                    </div>
                 </section>
 
                 <Footer />

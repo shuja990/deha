@@ -295,11 +295,19 @@ export class Navbar extends Component {
                                             </li>
                                             {
                                                 auth.currentUser.email==="info@linkcaranow.org"?
+                                                <>
                                                 <li className="nav-item">
                                                     <Link activeClassName="active" href="/users">
                                                         <a className="nav-link">Users</a>
                                                     </Link>
                                                 </li>
+                                                <li className="nav-item">
+                                                {/* <Link activeClassName="active" onClick={()=>auth.signOut()}> */}
+                                                    <a className="nav-link" onClick={()=>{auth.signOut();window.location.reload(false)}}>Logout</a>
+                                                {/* </Link> */}
+      
+                                            </li>
+                                                </>
                                                 :
                                                 <>
                                                 <li className="nav-item">

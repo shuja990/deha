@@ -22,7 +22,8 @@ export class index extends Component {
         category:'',
         position: 0,
         selectedCategory: 'Restaurant Depot',
-        options: [{label:"Restaurant Depot",value:"Restaurant Depot"},{label:"Accountant" ,value:"Accountant"},{label:"Attorney" ,value:"Attorney"}]
+        options: [],
+        newCategory:""
     }
     handleChange = event => {
         const {name,value} = event.target;
@@ -87,11 +88,37 @@ export class index extends Component {
             c.push(doc.data())
         });
         let pos = c.map(function(e) { return e.category; }).indexOf("Restaurant Depot");
-        that.setState({visits:c,position:pos})
+        let option = c.map(function(e){return {
+            label : e.category,
+            value : e.category
+        }})
+        console.log(option);
+        that.setState({visits:c,position:pos,options:option})
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
     });
+    }
+    addNewCategory = () => {
+        const that = this;
+        let visits = [
+            {
+                title: that.state.name,
+                link: that.state.link,
+                image: that.state.imageUrl,
+                description: that.state.description
+            }
+        ]
+        firestore.collection("discount").add({
+            category: that.state.newCategory,
+            discounts: visits
+        })
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
     }
     addVisit = () => {
         const that = this;
@@ -134,6 +161,7 @@ export class index extends Component {
         document.getElementById("exampleModal").style.display = "block"
     }
     render() {
+        console.log(this.state.visits);
         return (
             <React.Fragment>
                 <Navbar />
@@ -212,7 +240,7 @@ export class index extends Component {
                         </div>
                     </div>
                 </section>          
-   <div className="modal" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div className="modal" id="exampleModal" style={{overflow:"scroll"}}tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div className="modal-dialog" role="document">
     <div className="modal-content">
       <div className="modal-header">
@@ -239,14 +267,32 @@ export class index extends Component {
             <label htmlFor="recipient-name" className="col-form-label">Image</label>
             <input type="file" value={this.state.image} onChange={this.handleImage} name='image' className="form-control" id="recipient-name"/>
           </div>
+          <progress id="file" value={this.state.progress} max="100">{this.state.progress}</progress>
           <label for="sel1">Select Category:</label>
             <select class="form-control" id="sel1" value={this.state.category} onChange={this.handleChange} name='category'>
-                <option>Restaurant Depot</option>
-                <option>Accountant</option>
-                <option>Attorney</option>
-
+               {
+                   this.state.options.map(e => (
+                    <option>{e.value}</option>
+                   ))
+               }
             </select>
-          <progress id="file" value={this.state.progress} max="100">{this.state.progress}</progress>
+            
+            {auth.currentUser!==null
+                ? <div>
+                    {auth.currentUser.email === "info@linkcaranow.org"
+                ?
+                <>
+                <div className="form-group">
+                    <label htmlFor="recipient-name" className="col-form-label">Category</label>
+                    <input type="text" value={this.state.newCategory} onChange={this.handleChange} name='newCategory' className="form-control" id="recipient-name"/>
+                </div>
+                <button type="button" className="btn btn-primary" onClick={()=>{this.addNewCategory(); document.getElementById("exampleModal").style.display = "none"}}>Add Entry</button>
+                </>
+                : null
+                }
+                </div>
+                : <div></div>
+            }
           </form>
       </div>
       <div className="modal-footer">

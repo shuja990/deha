@@ -91,12 +91,15 @@ export class index extends Component {
         const that = this;
         // console.log(that.state.title);
         let d = encodeURI(that.state.name).toLowerCase()
+        let s = new Date()
         firestore.collection("blog").add({
             title: that.state.name,
             content: that.state.content,
-            // tags: that.state.tags,
+            tags: that.state.tags,
             slug: `/blog/${d}`,
-            image: that.state.imageUrl
+            image: that.state.imageUrl,
+            date: s.getDate().toString(),
+            month: s.getMonth().toString()
         })
         .then(function(docRef) {
     			const alertId = StatusAlertService.showSuccess('Thank you for Caribbean American Restaurant Association.');
@@ -114,6 +117,7 @@ export class index extends Component {
         console.log(value);
         this.setState({content:value})
     }
+    
     render() {
         return (
             <React.Fragment>
@@ -190,12 +194,12 @@ export class index extends Component {
           {/* <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label">Content</label>
             <input type="text" value={this.state.content} onChange={this.handleChange} name='content' className="form-control" id="recipient-name"/>
-          </div>
+          </div>*/}
           <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label">Tags</label>
             <input type="text" value={this.state.tag} onChange={this.handleChange} name='tag' className="form-control" id="recipient-name"/>
             <button type="button" onClick={()=>{this.state.tags.push(this.state.tag);this.setState({tag:""})}}>Add Tag</button>
-          </div> */}
+          </div> 
           <div className="form-group">
             <label htmlFor="recipient-name" className="col-form-label">Thumbnail Image</label>
             <input type="file" value={this.state.image} onChange={this.handleImage} name='image' className="form-control" id="recipient-name"/>
