@@ -286,7 +286,7 @@ export class index extends Component {
                     <label htmlFor="recipient-name" className="col-form-label">Category</label>
                     <input type="text" value={this.state.newCategory} onChange={this.handleChange} name='newCategory' className="form-control" id="recipient-name"/>
                 </div>
-                <button type="button" className="btn btn-primary" onClick={()=>{this.addNewCategory(); document.getElementById("exampleModal").style.display = "none"}}>Add Entry</button>
+                <button type="button" className="btn btn-primary" onClick={()=>{this.addNewCategory(); document.getElementById("exampleModal").style.display = "none"}}>Add Entry with New Category</button>
                 </>
                 : null
                 }
