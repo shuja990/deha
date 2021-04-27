@@ -764,7 +764,8 @@ Navbar CSS
         .modal-dialog {
             position: fixed;
             margin: auto;
-            width: 350px;
+            width: 550px;
+            max-width: 750px;
             height: 100%;
             transform: translate3d(0%, 0, 0);
         }
@@ -776,6 +777,25 @@ Navbar CSS
         }
         &.fade {
             .modal-dialog {
+                right: -320px;
+                transition: $transition;
+            }
+        }
+        .modal-dialog1 {
+            position: fixed;
+            margin: auto;
+            max-width: 550px;
+            height: 100%;
+            transform: translate3d(0%, 0, 0);
+        }
+        &.fade.show {
+            .modal-dialog1 {
+                right: 0;
+                transition: $transition;
+            }
+        }
+        &.fade {
+            .modal-dialog1 {
                 right: -320px;
                 transition: $transition;
             }
