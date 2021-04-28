@@ -67,7 +67,7 @@ export class index extends Component {
 
        </div>
       <div className="modal-footer">
-        <button type="button" className="btn btn-secondary" onClick={()=>Router.push('/signup')} data-dismiss="modal">Click here to Register</button>
+        <button type="button" className="btn btn-primary" onClick={()=>Router.push('/signup')} data-dismiss="modal">Click here to Register</button>
       </div>
     </div>
   </div>

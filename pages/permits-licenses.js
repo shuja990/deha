@@ -157,10 +157,7 @@ export class index extends Component {
             <label htmlFor="recipient-name" className="col-form-label" >Restaurant</label>
             <input type="text" value={this.state.restaurant} required onChange={this.handleChange} name='restaurant' className="form-control" id="recipient-name"/>
           </div>
-          <label for="sel1">Select License:</label>
-            <select class="form-control" id="sel1" value={this.state.agency} onChange={this.handleChange} name='agency'>
-                <option>State Liquor Authority (SLA)</option>
-            </select>
+         
         </form>
       </div>
       <div className="modal-footer">
